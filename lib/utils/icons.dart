@@ -1,0 +1,1 @@
+String myicons = "assets/icons/";
