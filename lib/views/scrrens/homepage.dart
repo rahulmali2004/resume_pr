@@ -68,7 +68,7 @@ class _homepageState extends State<homepage> {
         onPressed: () {
           Navigator.of(context).pushNamed(Myroutes.workspace);
         },
-        tooltip: "Create new resume",
+        tooltip: "Create New Resume",
         child: const Icon(Icons.add),
       ),
     );
