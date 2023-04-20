@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:resume_pr/utils/icons.dart';
+import 'package:resume_pr/utils/theme.dart';
 import 'package:resume_pr/views/components/iconbackpage.dart';
 
 class contactpage extends StatefulWidget {
@@ -10,45 +11,95 @@ class contactpage extends StatefulWidget {
 }
 
 class _contactpageState extends State<contactpage> {
+  int index = 0;
+  GlobalKey<FormState> formkey = GlobalKey();
+
   @override
   Widget build(BuildContext context) {
-    Size s = MediaQuery.of(context).size;
+    Size s = MediaQuery
+        .of(context)
+        .size;
     return Scaffold(
-      appBar: AppBar(
-        leading: Mybackicon(),
-        title: Text(
-          "CONTACT",
-          style: TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-            fontSize: 22,
-          ),
-        ),
-        centerTitle: true,
-        backgroundColor: Colors.blue,
-      ),
-      body: Center(
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(15),
-              child: Container(
-                height: s.height * 0.83,
-                color: Colors.white,
-                child: Row(
-                  children: [
-                    Image.asset(
-                      "${myicons}user.png",
-                      height: s.height * 0.09,
-                    ),
-                  ],
-                ),
-              ),
+        appBar: AppBar(
+          leading: Mybackicon(),
+          title: Text(
+            "CONTACT",
+            style: TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+              fontSize: 22,
             ),
-          ],
+          ),
+          centerTitle: true,
+          backgroundColor: Colors.blue,
         ),
-      ),
-      backgroundColor: Colors.grey.shade400,
+       body: Column(
+         children: [
+          Expanded(child: Row(
+            children: [
+              Expanded(child: GestureDetector(
+                onTap: (){
+                  setState(() {
+                    index = 0;
+                  });
+                },
+                child: Container(
+                  alignment: Alignment.center,
+                  child: Text(
+                    "Contact",
+                    style: appBarTitlestyle,
+                  ),
+                  decoration: BoxDecoration(
+                    border: Border(
+                      bottom: BorderSide(
+                        width: index == 0 ? 3 : 0,
+                        color: Colors.white,
+                      ),
+                    ),
+                      color: Colors.blue,
+                  ),
+                ),
+              )),
+              Expanded(child: GestureDetector(
+                onTap: (){
+                  setState(() {
+                    index = 1;
+                  });
+                },
+                child: Container(
+                  alignment: Alignment.center,
+                  child: Text(
+                    "Photo",
+                    style: appBarTitlestyle,
+                  ),
+                  decoration: BoxDecoration(
+                    border: Border(
+                      bottom: BorderSide(
+                        width: index == 1 ? 3 : 0,
+                        color: Colors.white,
+                      ),
+                    ),
+                    color: Colors.blue,
+                  ),
+                ),
+              ))
+            ],
+          )),
+           Expanded(
+               flex: 15,
+               child: Padding(
+             padding: EdgeInsets.all(20),
+             child: IndexedStack(
+               index: index,
+               children: [
+                 Text("Contact"),
+                 Text("Photo"),
+               ],
+             ),
+           )),
+          ],
+       ),
+        backgroundColor: Colors.grey
     );
   }
 }
