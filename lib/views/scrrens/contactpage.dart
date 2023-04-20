@@ -92,8 +92,12 @@ class _contactpageState extends State<contactpage> {
              child: IndexedStack(
                index: index,
                children: [
-                 Text("Contact"),
-                 Text("Photo"),
+                 Text("Contact",style: TextStyle(
+                   fontSize: 18,
+                 ),),
+                 Text("Photo",style: TextStyle(
+                   fontSize: 18,
+                 ),),
                ],
              ),
            )),
