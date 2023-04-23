@@ -28,72 +28,63 @@ class _contactpageState extends State<contactpage> {
   Widget build(BuildContext context) {
     Size s = MediaQuery.of(context).size;
     return Scaffold(
-        appBar: AppBar(
-          leading: Mybackicon(),
-          title: Text(
-            "CONTACT",
-            style: TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
-              fontSize: 22,
-            ),
+      appBar: AppBar(
+        leading: Mybackicon(),
+        title: Text(
+          "CONTACT",
+          style: TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+            fontSize: 22,
           ),
-          centerTitle: true,
-          backgroundColor: Colors.blue,
         ),
-        body: Column(
-          children: [
-            Expanded(
-                child: Row(
-              children: [
-                Expanded(
-                    child: GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      index = 0;
-                    });
-                  },
-                  child: Container(
-                    alignment: Alignment.center,
-                    child: Text(
-                      "Contact",
-                      style: appBarTitlestyle,
-                    ),
-                    decoration: BoxDecoration(
-                      border: Border(
-                        bottom: BorderSide(
-                          width: index == 0 ? 3 : 0,
-                          color: Colors.white,
-                        ),
+        centerTitle: true,
+        backgroundColor: Colors.blue,
+      ),
+      body: Column(
+        children: [
+          Expanded(
+              child: Row(
+            children: [
+              Expanded(
+                  child: GestureDetector(
+                onTap: () {
+                  setState(() {
+                    index = 0;
+                  });
+                },
+                child: Container(
+                  alignment: Alignment.center,
+                  child: Text(
+                    "Contact",
+                    style: appBarTitlestyle,
+                  ),
+                  decoration: BoxDecoration(
+                    border: Border(
+                      bottom: BorderSide(
+                        width: index == 0 ? 3 : 0,
+                        color: Colors.white,
                       ),
-                      color: Colors.blue,
                     ),
+                    color: Colors.blue,
+                  ),
+                ),
+              )),
+              Expanded(
+                  child: GestureDetector(
+                onTap: () {
+                  setState(() {
+                    index = 1;
+                  });
+                },
+                child: Container(
+                  alignment: Alignment.center,
+                  child: Text(
+                    "Photo",
+                    style: appBarTitlestyle,
                   ),
                 )),
-                Expanded(
-                    child: GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      index = 1;
-                    });
-                  },
-                  child: Container(
-                    alignment: Alignment.center,
-                    child: Text(
-                      "Photo",
-                      style: appBarTitlestyle,
-                    ),
-                    decoration: BoxDecoration(
-                      border: Border(
-                        bottom: BorderSide(
-                          width: index == 1 ? 3 : 0,
-                          color: Colors.white,
-                        ),
-                      ),
-                      color: Colors.blue,
-                    ),
-                  ),
-                ))
+              ),
               ],
             )),
             Expanded(
@@ -391,7 +382,7 @@ class _contactpageState extends State<contactpage> {
             ),
           ],
         ),
-        backgroundColor: Colors.grey.shade400,
+      backgroundColor: Colors.grey.shade300,
     );
   }
 }
