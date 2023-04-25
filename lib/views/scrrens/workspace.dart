@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:resume_pr/utils/routes.dart';
 import 'package:resume_pr/utils/theme.dart';
+import 'package:resume_pr/views/scrrens/pdfpage.dart';
 
 class workspace extends StatefulWidget {
   const workspace({Key? key}) : super(key: key);
@@ -15,6 +16,9 @@ class _workspaceState extends State<workspace> {
     Size s = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
+        actions: [IconButton(onPressed: (){
+          Navigator.of(context).pushNamed("PDF_page");
+        },icon: Icon(Icons.picture_as_pdf),color: Colors.white,)],
         leading: IconButton(
           onPressed: () {
             Navigator.of(context).pop();

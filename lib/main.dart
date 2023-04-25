@@ -9,6 +9,7 @@ import 'package:resume_pr/views/scrrens/declarationpage.dart';
 import 'package:resume_pr/views/scrrens/educationpage.dart';
 import 'package:resume_pr/views/scrrens/experiencepage.dart';
 import 'package:resume_pr/views/scrrens/homepage.dart';
+import 'package:resume_pr/views/scrrens/pdfpage.dart';
 import 'package:resume_pr/views/scrrens/personalpage.dart';
 import 'package:resume_pr/views/scrrens/projectspage.dart';
 import 'package:resume_pr/views/scrrens/referencespage.dart';
@@ -45,6 +46,7 @@ class MyApp extends StatelessWidget {
         Myroutes.buildoption[8].route: (context) => const achievementspage(),
         Myroutes.buildoption[9].route: (context) => const referencespage(),
         Myroutes.buildoption[10].route: (context) => const declarationpage(),
+        "PDF_page": (context) => pdfpage(),
       },
     );
   }

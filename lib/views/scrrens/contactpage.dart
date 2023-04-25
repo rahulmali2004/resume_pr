@@ -1,8 +1,13 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:resume_pr/utils/icons.dart';
 import 'package:resume_pr/utils/theme.dart';
 import 'package:resume_pr/views/components/iconbackpage.dart';
+
+import '../../modals/globals_page.dart';
 
 class contactpage extends StatefulWidget {
   const contactpage({Key? key}) : super(key: key);
@@ -14,6 +19,8 @@ class contactpage extends StatefulWidget {
 class _contactpageState extends State<contactpage> {
   int index = 0;
   GlobalKey<FormState> formkey = GlobalKey();
+
+  ImagePicker picker = ImagePicker();
 
   @override
   Widget build(BuildContext context) {
@@ -249,10 +256,69 @@ class _contactpageState extends State<contactpage> {
                         ),
                       ),
                     ),
-                    Text(
-                      "Photo",
-                      style: TextStyle(
-                        fontSize: 18,
+                    Container(
+                      height: 250,
+                      color: Colors.white,
+                      alignment: Alignment.center,
+                      child: Stack(
+                        alignment: Alignment.bottomRight,
+                        children: [
+                          CircleAvatar(
+                            radius: 60,
+                            foregroundImage: (Global.image != null)
+                                ? FileImage(Global.image!)
+                                : null,
+                            child: const Text("ADD"),
+                          ),
+                          FloatingActionButton(onPressed: () {
+                            showDialog(
+                                context: context,
+                                builder: (context) => AlertDialog(
+                                  title: const Text("Select the Method..."),
+                                  actions: [
+                                    TextButton.icon(
+                                      onPressed: () async {
+                                        Navigator.of(context).pop();
+
+                                        XFile? img = await picker.pickImage(
+                                            source: ImageSource.camera);
+
+                                        if (img != null) {
+                                          setState(() {
+                                            Global.image = File(img.path);
+                                          });
+                                        }
+                                        ;
+                                      },
+                                      label: const Text("Camera"),
+                                      icon: const Icon(Icons.camera_alt),
+                                    ),
+                                    TextButton.icon(
+                                      onPressed: () async {
+                                        Navigator.of(context).pop();
+
+                                        XFile? img = await picker.pickImage(
+                                            source: ImageSource.gallery);
+
+                                        if (img != null) {
+                                          setState(() {
+                                            Global.image = File(img.path);
+                                          });
+                                        }
+                                      },
+                                      label: const Text("Gallery"),
+                                      icon: const Icon(Icons.image),
+                                    ),
+                                  ],
+                                ));
+                          },
+                            mini: true,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(50),
+                            ),
+                            child: const Icon(Icons.camera),
+                          ),
+                        ],
                       ),
                     ),
                   ],

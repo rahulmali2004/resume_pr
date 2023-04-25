@@ -37,6 +37,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   provider:
   image_picker: ^0.8.7+4
+  pdf: ^3.10.1
+  printing: ^5.10.3
 
 dev_dependencies:
   flutter_test:
