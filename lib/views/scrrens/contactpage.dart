@@ -1,13 +1,8 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:resume_pr/utils/icons.dart';
 import 'package:resume_pr/utils/theme.dart';
 import 'package:resume_pr/views/components/iconbackpage.dart';
-
-import '../../modals/globals_page.dart';
 
 class contactpage extends StatefulWidget {
   const contactpage({Key? key}) : super(key: key);
@@ -19,10 +14,6 @@ class contactpage extends StatefulWidget {
 class _contactpageState extends State<contactpage> {
   int index = 0;
   GlobalKey<FormState> formkey = GlobalKey();
-
-  bool hide = true;
-   ImagePicker picker = ImagePicker();
-
 
   @override
   Widget build(BuildContext context) {
@@ -45,57 +36,57 @@ class _contactpageState extends State<contactpage> {
         children: [
           Expanded(
               child: Row(
-                children: [
-                  Expanded(
-                      child: GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            index = 0;
-                          });
-                        },
-                        child: Container(
-                          alignment: Alignment.center,
-                          child: Text(
-                            "Contact",
-                            style: appBarTitlestyle,
-                          ),
-                          decoration: BoxDecoration(
-                            border: Border(
-                              bottom: BorderSide(
-                                width: index == 0 ? 3 : 0,
-                                color: Colors.white,
-                              ),
-                            ),
-                            color: Colors.blue,
-                          ),
-                        ),
-                      )),
-                  Expanded(
-                      child: GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            index = 1;
-                          });
-                        },
-                        child: Container(
-                          alignment: Alignment.center,
-                          child: Text(
-                            "Photo",
-                            style: appBarTitlestyle,
-                          ),
-                          decoration: BoxDecoration(
-                            border: Border(
-                              bottom: BorderSide(
-                                width: index == 1 ? 3 : 0,
-                                color: Colors.white,
-                              ),
-                            ),
-                            color: Colors.blue,
-                          ),
-                        ),
-                      ))
-                ],
+            children: [
+              Expanded(
+                  child: GestureDetector(
+                onTap: () {
+                  setState(() {
+                    index = 0;
+                  });
+                },
+                child: Container(
+                  alignment: Alignment.center,
+                  child: Text(
+                    "Contact",
+                    style: appBarTitlestyle,
+                  ),
+                  decoration: BoxDecoration(
+                    border: Border(
+                      bottom: BorderSide(
+                        width: index == 0 ? 3 : 0,
+                        color: Colors.white,
+                      ),
+                    ),
+                    color: Colors.blue,
+                  ),
+                ),
               )),
+              Expanded(
+                  child: GestureDetector(
+                onTap: () {
+                  setState(() {
+                    index = 1;
+                  });
+                },
+                child: Container(
+                  alignment: Alignment.center,
+                  child: Text(
+                    "Photo",
+                    style: appBarTitlestyle,
+                  ),
+                  decoration: BoxDecoration(
+                    border: Border(
+                      bottom: BorderSide(
+                        width: index == 1 ? 3 : 0,
+                        color: Colors.white,
+                      ),
+                    ),
+                    color: Colors.blue,
+                  ),
+                ),
+              ))
+            ],
+          )),
           Expanded(
               flex: 15,
               child: Padding(
@@ -171,9 +162,9 @@ class _contactpageState extends State<contactpage> {
                                 children: [
                                   Expanded(
                                       child: Icon(
-                                        Icons.phone,
-                                        size: 45,
-                                      )),
+                                    Icons.phone,
+                                    size: 45,
+                                  )),
                                   const Spacer(),
                                   Expanded(
                                     flex: 7,
@@ -258,69 +249,10 @@ class _contactpageState extends State<contactpage> {
                         ),
                       ),
                     ),
-                    Container(
-                      height: 300,
-                      color: Colors.white,
-                      alignment: Alignment.center,
-                      child: Stack(
-                        alignment: Alignment.bottomRight,
-                        children: [
-                          CircleAvatar(
-                            radius: 70,
-                            foregroundImage: (Global.image != null)
-                                ? FileImage(Global.image!)
-                                : null,
-                            child: const Text("ADD"),
-                          ),
-                          FloatingActionButton(onPressed: () {
-                            showDialog(
-                                context: context,
-                                builder: (context) => AlertDialog(
-                                  title: const Text("Select the Method..."),
-                                  actions: [
-                                    TextButton.icon(
-                                      onPressed: () async {
-                                        Navigator.of(context).pop();
-
-                                        XFile? img = await picker.pickImage(
-                                            source: ImageSource.camera);
-
-                                        if (img != null) {
-                                          setState(() {
-                                            Global.image = File(img.path);
-                                          });
-                                        }
-                                        ;
-                                      },
-                                      label: const Text("Camera"),
-                                      icon: const Icon(Icons.camera_alt),
-                                    ),
-                                    TextButton.icon(
-                                      onPressed: () async {
-                                        Navigator.of(context).pop();
-
-                                        XFile? img = await picker.pickImage(
-                                            source: ImageSource.gallery);
-
-                                        if (img != null) {
-                                          setState(() {
-                                            Global.image = File(img.path);
-                                          });
-                                        }
-                                      },
-                                      label: const Text("Gallery"),
-                                      icon: const Icon(Icons.image),
-                                    ),
-                                  ],
-                                ));
-                          },
-                            mini: true,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(50),
-                            ),
-                            child: const Icon(Icons.camera),
-                          ),
-                        ],
+                    Text(
+                      "Photo",
+                      style: TextStyle(
+                        fontSize: 18,
                       ),
                     ),
                   ],
@@ -332,4 +264,3 @@ class _contactpageState extends State<contactpage> {
     );
   }
 }
-

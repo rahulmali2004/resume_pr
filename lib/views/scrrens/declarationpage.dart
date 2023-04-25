@@ -27,6 +27,5 @@ class _declarationpageState extends State<declarationpage> {
         backgroundColor: Colors.blue,
       ),
     );
-    ;
   }
 }
