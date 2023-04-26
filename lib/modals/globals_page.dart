@@ -12,11 +12,10 @@ class Global {
 
   static File? image;
 
-
-
   static List<String> techanical = [];
   static List<TextEditingController> mySkillsControllers = [];
   static List<String> achiev = [];
+  static List<String> hobbies = [];
 
 
 }
