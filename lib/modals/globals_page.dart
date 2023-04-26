@@ -10,8 +10,7 @@ class Global {
 
   static File? image;
 
-
-
   static List<String> techanical = [];
+  static List<String> hobbies = [];
   static List<String> achiev = [];
 }
