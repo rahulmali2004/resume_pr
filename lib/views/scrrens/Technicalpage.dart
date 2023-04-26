@@ -12,6 +12,44 @@ class technicalpage extends StatefulWidget {
 
 class _technicalpageState extends State<technicalpage> {
   @override
+  void dispose() {
+    super.dispose();
+
+    Global.mySkillsControllers.removeWhere((element) {
+      if (element.text == "") {
+        print("REMOVED: ${Global.mySkillsControllers.indexOf(element)}\t\tVALUE: ${element.text}");
+        return true;
+      } else {
+        print("SKIPPED: ${Global.mySkillsControllers.indexOf(element)}\t\tVALUE: ${element.text}");
+        return false;
+      }
+    });
+
+    Global.mySkillsControllers.forEach((element) {
+      Global.techanical.add("");
+      Global.techanical[Global.mySkillsControllers.indexOf(element)] = element.text;
+    });
+
+    Global.techanical.removeWhere((element) => element == "");
+
+    if (Global.mySkillsControllers.isEmpty) {
+      for (int i = 0; i < 2; i++) {
+        Global.mySkillsControllers.add(TextEditingController());
+      }
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    if (Global.mySkillsControllers.isEmpty) {
+      for (int i = 0; i < 2; i++) {
+        Global.mySkillsControllers.add(TextEditingController());
+      }
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -50,50 +88,64 @@ class _technicalpageState extends State<technicalpage> {
                     ),
                   ),
                 ),
-                ...Global.techanical
-                    .map(
-                      (e) => Row(
-                        children: [
-                          Expanded(
-                            child: TextField(
-                              decoration: InputDecoration(
-                                hintText: "C Programming Web",
-                                hintStyle: TextStyle(
-                                  fontSize: 18,
-                                ),
-                              ),
-                              onChanged: (val) {},
-                            ),
-                          ),
-                          IconButton(
-                              onPressed: () {
-                                setState(() {});
-                              },
-                              icon: Icon(Icons.delete))
-                        ],
-                      ),
-                    )
-                    .toList(),
-                SizedBox(
-                  height: 10,
+                ...List.generate(
+                  Global.mySkillsControllers.length,
+                      (index) => MySkillTile(index: index),
                 ),
-                SizedBox(
-                  width: double.infinity,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      setState(() {
-                        Global.techanical.add("");
-                      });
-                    },
-                    child: Icon(Icons.add),
-                  ),
+                const SizedBox(
+                  height: 15,
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: ElevatedButton(
+                        onPressed: () {
+                          setState(() {
+                            Global.mySkillsControllers.add(
+                                TextEditingController());
+                          });
+                        },
+                        child: const Icon(Icons.add),
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),
           ),
         ),
       ),
-      backgroundColor: Colors.grey,
+      backgroundColor: Colors.grey.shade200,
     );
   }
+  Widget MySkillTile({required int index}) {
+    return Row(
+      children: [
+        Expanded(
+          child: TextField(
+            controller: Global.mySkillsControllers[index],
+            decoration: const InputDecoration(
+              hintText: "C Programming, Web",
+            ),
+          ),
+        ),
+        IconButton(
+          onPressed: () {
+            setState(() {
+              Global.mySkillsControllers.removeAt(index);
+            });
+          },
+          icon: const Icon(
+            Icons.delete,
+          ),
+        ),
+      ],
+    );
+  }
+
 }
+
+
+
+
+

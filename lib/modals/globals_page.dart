@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'package:flutter/cupertino.dart';
+
 class Global {
   static String? name;
   static String? email;
@@ -13,5 +15,8 @@ class Global {
 
 
   static List<String> techanical = [];
+  static List<TextEditingController> mySkillsControllers = [];
   static List<String> achiev = [];
+
+
 }
