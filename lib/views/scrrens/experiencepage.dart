@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../../modals/globals_page.dart';
 import '../components/iconbackpage.dart';
+import '../components/mysnackbar.dart';
 
 class experiencepage extends StatefulWidget {
   const experiencepage({Key? key}) : super(key: key);
@@ -12,9 +14,11 @@ class experiencepage extends StatefulWidget {
 class _experiencepageState extends State<experiencepage> {
   String experience = "";
   String? previously;
+  GlobalKey<FormState> formkey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
+    Size s = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         leading: Mybackicon(),
@@ -197,21 +201,139 @@ class _experiencepageState extends State<experiencepage> {
                             previously = val;
                           });
                         }),
-                    TextFormField(
-                      decoration: InputDecoration(
-                        hintStyle: TextStyle(
-                          color: Colors.grey.shade200,
-                        ),
-                      ),
-                    ),
+                    Divider(),
                     SizedBox(
                       height: 10,
                     ),
-                    Row(
-                      children: [
+                        Row(
+                          children: [
+                            Container(
+                              height: s.height * 0.12,
+                              width: s.width * 0.38,
+                              decoration: const BoxDecoration(
+                                color: Colors.transparent,
+                              ),
+                              child: Column(
+                                children: [
+                                  Text(
+                                    "Date Joined",
+                                    style: TextStyle(
+                                      color: Colors.grey.shade700,
+                                      fontSize: 20,
+                                    ),
+                                  ),
+                                  TextFormField(
+                                    textInputAction: TextInputAction.next,
+                                    validator: (value) {
+                                      if (value!.isEmpty) {
+                                        const Text("Date !!");
+                                      } else {
+                                        return null;
+                                      }
+                                    },
+                                    onSaved: (value) {
+                                      return null;
+                                    },
+                                    decoration: InputDecoration(
+                                      border: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
+                                      contentPadding: const EdgeInsets.all(5),
+                                      hintText: "DD/MM/YYYY",
+                                      hintStyle: TextStyle(
+                                        color: Colors.grey.shade400,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            const Spacer(),
+                            Container(
+                              height: s.height * 0.12,
+                              width: s.width * 0.38,
+                              decoration: const BoxDecoration(
+                                color: Colors.transparent,
+                              ),
+                              child: Column(
+                                children: [
+                                  Text(
+                                    "Data Exit",
+                                    style: TextStyle(
+                                      color: Colors.grey.shade700,
+                                      fontSize: 20,
+                                    ),
+                                  ),
+                                  TextFormField(
+                                    validator: (value) {
+                                      if (value!.isEmpty == null) {
+                                        const Text("Date!!");
+                                      } else {
+                                        return null;
+                                      }
+                                    },
+                                    onSaved: (value) {
+                                      Global.exprience!;
+                                    },
+                                    decoration: InputDecoration(
+                                      border: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
+                                      contentPadding: const EdgeInsets.all(5),
+                                      hintText: "DD/MM/YYYY",
+                                      hintStyle: TextStyle(
+                                        color: Colors.grey.shade400,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            GestureDetector(
+                              onTap: () {
+                                setState(
+                                      () {},
+                                );
+                              },
+                              child: TextButton(
+                                onPressed: () {
+                                  setState(() {
+                                    if (formkey.currentState!.validate()) {
+                                      formkey.currentState!.save();
+                                      ScaffoldMessenger.of(context).showSnackBar(
+                                    mySnackBar(
+                                          text: "Successfully validated !!",
+                                          color: Colors.green,
+                                        ),
+                                      );
+                                    } else {
+                                      ScaffoldMessenger.of(context).showSnackBar(
+                                      mySnackBar(
+                                          text: "Failled to validate !!",
+                                          color: Colors.red,
+                                        ),
+                                      );
+                                    }
+                                  });
+                                },
+                                child: const Text(
+                                  "SAVE",
+                                  style: TextStyle(
+                                    color: Colors.blue,
+                                    fontSize: 22,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
 
-                      ],
-                    )
                   ],
                 ),
               ),

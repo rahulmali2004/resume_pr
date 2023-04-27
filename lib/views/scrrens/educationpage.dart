@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:resume_pr/views/components/iconbackpage.dart';
 
+import '../../modals/globals_page.dart';
+
 class educationpage extends StatefulWidget {
   const educationpage({Key? key}) : super(key: key);
 
@@ -33,36 +35,36 @@ class _educationpageState extends State<educationpage> {
         child: SingleChildScrollView(
           physics: BouncingScrollPhysics(),
           child: Center(
-            child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                color: Colors.white,
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 12),
-                        child: const Text(
-                          "Course/Degree",
-                          style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.blue),
+            child: Form(
+              key: formkey,
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  color: Colors.white,
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left: 12),
+                          child: const Text(
+                            "Course/Degree",
+                            style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.blue),
+                          ),
                         ),
-                      ),
-                    ],
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(10),
-                    child: Form(
-                      key: formkey,
+                      ],
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(10),
                       child: Column(
                         children: [
                           TextFormField(
@@ -72,8 +74,16 @@ class _educationpageState extends State<educationpage> {
                               border: OutlineInputBorder(),
                             ),
                             onSaved: (val) {
-                              course = val!;
+                              Global.education = val;
                             },
+                            validator: (val) {
+                              if (val!.isEmpty) {
+                                return "Enter Your course";
+                              } else {
+                                return null;
+                              }
+                            },
+
                           ),
                           SizedBox(
                             height: 30,
@@ -103,7 +113,14 @@ class _educationpageState extends State<educationpage> {
                                   border: OutlineInputBorder(),
                                 ),
                                 onSaved: (val) {
-                                  course = val!;
+                                  Global.education1 = val;
+                                },
+                                validator: (val) {
+                                  if (val!.isEmpty) {
+                                    return "Enter Your collage";
+                                  } else {
+                                    return null;
+                                  }
                                 },
                               ),
                               SizedBox(
@@ -134,7 +151,14 @@ class _educationpageState extends State<educationpage> {
                                       border: OutlineInputBorder(),
                                     ),
                                     onSaved: (val) {
-                                      course = val!;
+                                      Global.education2 = val;
+                                    },
+                                    validator: (val) {
+                                      if (val!.isEmpty) {
+                                        return "Enter Your collage";
+                                      } else {
+                                        return null;
+                                      }
                                     },
                                   ),
                                 ],
@@ -169,7 +193,14 @@ class _educationpageState extends State<educationpage> {
                                         border: OutlineInputBorder(),
                                       ),
                                       onSaved: (val) {
-                                        course = val!;
+                                        Global.education3 = val;
+                                      },
+                                      validator: (val) {
+                                        if (val!.isEmpty) {
+                                          return "Enter Your year";
+                                        } else {
+                                          return null;
+                                        }
                                       },
                                     ),
                                   ],
@@ -180,8 +211,8 @@ class _educationpageState extends State<educationpage> {
                         ],
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ),

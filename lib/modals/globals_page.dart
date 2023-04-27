@@ -10,12 +10,29 @@ class Global {
   static String? a2;
   static String? a3;
 
+  static String? b1;
+  static String? b2;
+  static String? b3;
+
   static File? image;
 
   static List<String> techanical = [];
   static List<TextEditingController> mySkillsControllers = [];
   static List<String> achiev = [];
   static List<String> hobbies = [];
+
+  static String? carrier1;
+  static String? carrier2;
+
+  static String? education;
+  static String? education1;
+  static String? education2;
+  static String? education3;
+
+  static String? exprience;
+
+  static String? declaration;
+
 
 
 }
