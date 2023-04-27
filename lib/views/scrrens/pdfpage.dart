@@ -26,53 +26,55 @@ class _pdfpageState extends State<pdfpage> {
           width: double.infinity,
           child: pw.Row(
             children: [
-              pw.Expanded(flex: 1,
+              pw.Expanded(
+                flex: 1,
                 child: pw.Column(
-                children: [
-                  pw.Container(
-                    height: 841,
-                    color: PdfColor.fromInt(0xff3B3B3D),
-                    child: pw.Column(
-                      children:[
-                        pw.Container(
-                          height: 200,
-                          width: 250,
-                          decoration: pw.BoxDecoration(
-                            shape: pw.BoxShape.circle,
-                            image: pw.DecorationImage(
-                              image: pw.MemoryImage(File(Global.image!.path).readAsBytesSync(),),
+                  children: [
+                    pw.Container(
+                      height: 841,
+                      color: PdfColor.fromInt(0xff0061A4),
+                      child: pw.Column(
+                        children: [
+                          pw.Container(
+                            height: 200,
+                            width: 250,
+                            decoration: pw.BoxDecoration(
+                              shape: pw.BoxShape.circle,
+                              image: pw.DecorationImage(
+                                image: pw.MemoryImage(
+                                  File(Global.image!.path).readAsBytesSync(),
+                                ),
+                              ),
                             ),
                           ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  pw.SizedBox(
-                    height: 20
-                  ),
-                  ...Global.techanical
-                      .map(
-                        (e) => pw.Text(
-                      "Skill: $e",
-                      style: pw.TextStyle(
-                        color: PdfColors.white,
-                        fontSize: 26,
+                          pw.SizedBox(height: 20),
+                          ...Global.techanical
+                              .map(
+                                (e) => pw.Text(
+                                  "Skill: $e",
+                                  style: pw.TextStyle(
+                                    color: PdfColors.white,
+                                    fontSize: 26,
+                                  ),
+                                ),
+                              )
+                              .toList(),
+                        ],
                       ),
                     ),
-                  )
-                      .toList(),
-                ],
+                  ],
+                ),
               ),
-              ),
-              pw.Expanded(flex: 2,
+              pw.Expanded(
+                flex: 2,
                 child: pw.Column(
-                children: [
-                  pw.Container(
-                    height: double.infinity,
-                    color: PdfColor.fromInt(0xff3B3B3D),
-                  ),
-                ],
-              ),
+                  children: [
+                    pw.Container(
+                      height: double.infinity,
+                      color: PdfColor.fromInt(0xff3B3B3D),
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
@@ -83,7 +85,6 @@ class _pdfpageState extends State<pdfpage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     generatePdf();
   }
@@ -96,17 +97,17 @@ class _pdfpageState extends State<pdfpage> {
         title: const Text(
           "PDF",
           style: TextStyle(
-              fontSize: 22,
-              fontWeight: FontWeight.w700,
-              color: Colors.white,
-            ),
+            fontSize: 22,
+            fontWeight: FontWeight.w700,
+            color: Colors.white,
           ),
+        ),
         centerTitle: true,
         backgroundColor: Colors.blue,
-        ),
+      ),
       body: PdfPreview(
         build: (format) => pdf.save(),
-    ),
+      ),
     );
   }
 }
