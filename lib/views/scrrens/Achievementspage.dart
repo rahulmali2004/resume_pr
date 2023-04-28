@@ -12,12 +12,11 @@ class achievementspage extends StatefulWidget {
   State<achievementspage> createState() => _achievementspageState();
 }
 
- class _achievementspageState extends State<achievementspage> {
+class _achievementspageState extends State<achievementspage> {
 //   String achiev = "";
 
   bool achiev = true;
   @override
-
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -31,7 +30,7 @@ class achievementspage extends StatefulWidget {
           ),
         ),
         centerTitle: true,
-        backgroundColor: Colors.blue,
+        backgroundColor: Color(0xff1D2939),
       ),
       body: Padding(
         padding: const EdgeInsets.all(20),
@@ -59,28 +58,28 @@ class achievementspage extends StatefulWidget {
                 ...Global.achiev
                     .map(
                       (e) => Row(
-                    children: [
-                      Expanded(
-                        child: TextField(
-                          decoration: InputDecoration(
-                            hintText: "Exceeded Sales 17% Avearage",
-                            hintStyle: TextStyle(
-                              fontSize: 14,
+                        children: [
+                          Expanded(
+                            child: TextField(
+                              decoration: InputDecoration(
+                                hintText: "Exceeded Sales 17% Avearage",
+                                hintStyle: TextStyle(
+                                  fontSize: 14,
+                                ),
+                              ),
+                              onChanged: (val) {},
                             ),
                           ),
-                          onChanged: (val) {},
-                        ),
+                          IconButton(
+                              onPressed: () {
+                                setState(() {
+                                  Global.achiev.remove(e);
+                                });
+                              },
+                              icon: Icon(Icons.delete))
+                        ],
                       ),
-                      IconButton(
-                          onPressed: () {
-                            setState(() {
-                              Global.achiev.remove(e);
-                            });
-                          },
-                          icon: Icon(Icons.delete))
-                    ],
-                  ),
-                )
+                    )
                     .toList(),
                 SizedBox(
                   height: 10,

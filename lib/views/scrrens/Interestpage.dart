@@ -25,7 +25,7 @@ class _interestpageState extends State<interestpage> {
           ),
         ),
         centerTitle: true,
-        backgroundColor: Colors.blue,
+        backgroundColor: Color(0xff1D2939),
       ),
       body: Padding(
         padding: const EdgeInsets.all(20),

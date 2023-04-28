@@ -17,17 +17,20 @@ class _technicalpageState extends State<technicalpage> {
 
     Global.mySkillsControllers.removeWhere((element) {
       if (element.text == "") {
-        print("REMOVED: ${Global.mySkillsControllers.indexOf(element)}\t\tVALUE: ${element.text}");
+        print(
+            "REMOVED: ${Global.mySkillsControllers.indexOf(element)}\t\tVALUE: ${element.text}");
         return true;
       } else {
-        print("SKIPPED: ${Global.mySkillsControllers.indexOf(element)}\t\tVALUE: ${element.text}");
+        print(
+            "SKIPPED: ${Global.mySkillsControllers.indexOf(element)}\t\tVALUE: ${element.text}");
         return false;
       }
     });
 
     Global.mySkillsControllers.forEach((element) {
       Global.techanical.add("");
-      Global.techanical[Global.mySkillsControllers.indexOf(element)] = element.text;
+      Global.techanical[Global.mySkillsControllers.indexOf(element)] =
+          element.text;
     });
 
     Global.techanical.removeWhere((element) => element == "");
@@ -63,7 +66,7 @@ class _technicalpageState extends State<technicalpage> {
           ),
         ),
         centerTitle: true,
-        backgroundColor: Colors.blue,
+        backgroundColor: Color(0xff1D2939),
       ),
       body: Padding(
         padding: const EdgeInsets.all(20),
@@ -90,7 +93,7 @@ class _technicalpageState extends State<technicalpage> {
                 ),
                 ...List.generate(
                   Global.mySkillsControllers.length,
-                      (index) => MySkillTile(index: index),
+                  (index) => MySkillTile(index: index),
                 ),
                 const SizedBox(
                   height: 15,
@@ -101,8 +104,8 @@ class _technicalpageState extends State<technicalpage> {
                       child: ElevatedButton(
                         onPressed: () {
                           setState(() {
-                            Global.mySkillsControllers.add(
-                                TextEditingController());
+                            Global.mySkillsControllers
+                                .add(TextEditingController());
                           });
                         },
                         child: const Icon(Icons.add),
@@ -118,6 +121,7 @@ class _technicalpageState extends State<technicalpage> {
       backgroundColor: Colors.grey.shade200,
     );
   }
+
   Widget MySkillTile({required int index}) {
     return Row(
       children: [
@@ -142,10 +146,4 @@ class _technicalpageState extends State<technicalpage> {
       ],
     );
   }
-
 }
-
-
-
-
-

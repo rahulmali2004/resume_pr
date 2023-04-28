@@ -28,7 +28,7 @@ class _personalpageState extends State<personalpage> {
               fontWeight: FontWeight.bold, fontSize: 22, color: Colors.white),
         ),
         centerTitle: true,
-        backgroundColor: Colors.blue,
+        backgroundColor: Color(0xff1D2939),
       ),
       body: Padding(
         padding: const EdgeInsets.all(10),
@@ -219,8 +219,7 @@ class _personalpageState extends State<personalpage> {
                           },
                         ),
                         Row(
-                          mainAxisAlignment:
-                          MainAxisAlignment.spaceEvenly,
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             ElevatedButton(
                                 onPressed: () {
@@ -231,8 +230,7 @@ class _personalpageState extends State<personalpage> {
                             ElevatedButton(
                                 onPressed: () {
                                   setState(() {
-                                    Global.b1= Global.b2 =
-                                        Global.b3 = null;
+                                    Global.b1 = Global.b2 = Global.b3 = null;
                                     formkey.currentState!.reset();
                                   });
                                 },

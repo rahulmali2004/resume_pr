@@ -176,13 +176,13 @@ class _pdfpageState extends State<pdfpage> {
                           ...Global.techanical
                               .map(
                                 (e) => pw.Text(
-                              "$e",
-                              style: pw.TextStyle(
-                                fontSize: 26,
-                                color: PdfColors.white,
-                              ),
-                            ),
-                          )
+                                  "$e",
+                                  style: pw.TextStyle(
+                                    fontSize: 26,
+                                    color: PdfColors.white,
+                                  ),
+                                ),
+                              )
                               .toList(),
                         ],
                       ),
@@ -202,25 +202,31 @@ class _pdfpageState extends State<pdfpage> {
                           pw.Divider(),
                           pw.Align(
                             alignment: pw.Alignment.topCenter,
-                            child: pw.Text("Personal Details",textAlign: pw.TextAlign.left,style: pw.TextStyle(
-                              color: PdfColors.blue,
-                              fontWeight: pw.FontWeight.bold,
-                              fontSize: 25,
-                            )),
+                            child: pw.Text("Personal Details",
+                                textAlign: pw.TextAlign.left,
+                                style: pw.TextStyle(
+                                  color: PdfColors.blue,
+                                  fontWeight: pw.FontWeight.bold,
+                                  fontSize: 25,
+                                )),
                           ),
                           pw.Divider(),
                           pw.Align(
                             alignment: pw.Alignment.topLeft,
-                              child: pw.Text("Date Of Birth",textAlign: pw.TextAlign.left,style: pw.TextStyle(
-                                fontWeight: pw.FontWeight.bold,
+                            child: pw.Text("Date Of Birth",
+                                textAlign: pw.TextAlign.left,
+                                style: pw.TextStyle(
+                                  fontWeight: pw.FontWeight.bold,
+                                  fontSize: 18,
+                                  color: PdfColors.black,
+                                )),
+                          ),
+                          pw.Text("${Global.b1}",
+                              textAlign: pw.TextAlign.left,
+                              style: pw.TextStyle(
                                 fontSize: 18,
                                 color: PdfColors.black,
                               )),
-                          ),
-                          pw.Text("${Global.b1}",textAlign: pw.TextAlign.left,style: pw.TextStyle(
-                            fontSize: 18,
-                            color: PdfColors.black,
-                          )),
                         ],
                       ),
                     )

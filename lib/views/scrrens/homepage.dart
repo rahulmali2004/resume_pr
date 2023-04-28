@@ -43,7 +43,7 @@ class _homepageState extends State<homepage> {
           ],
         ),
         centerTitle: true,
-        backgroundColor: Colors.blue,
+        backgroundColor: Color(0xff1D2939),
       ),
       body: Center(
         child: Column(

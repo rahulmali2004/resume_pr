@@ -26,7 +26,7 @@ class _referencespageState extends State<referencespage> {
           ),
         ),
         centerTitle: true,
-        backgroundColor: Colors.blue,
+        backgroundColor: Color(0xff1D2939),
       ),
       body: Padding(
         padding: EdgeInsets.all(10),
@@ -99,10 +99,9 @@ class _referencespageState extends State<referencespage> {
                               children: [
                                 TextFormField(
                                   decoration: InputDecoration(
-                                    hintText:
-                                    "IT H.O.D, ID 2298",
+                                    hintText: "IT H.O.D, ID 2298",
                                     hintStyle:
-                                    TextStyle(color: Colors.grey.shade400),
+                                        TextStyle(color: Colors.grey.shade400),
                                     border: OutlineInputBorder(),
                                   ),
                                   onSaved: (val) {
@@ -145,26 +144,23 @@ class _referencespageState extends State<referencespage> {
                                       SizedBox(
                                         height: 10,
                                       ),
-
-                                          ],
-                                        ),
-                                      ),
                                     ],
                                   ),
                                 ),
                               ],
                             ),
                           ),
-                  ),
                         ],
                       ),
                     ),
                   ),
+                ],
+              ),
+            ),
+          ),
         ),
       ),
       backgroundColor: Colors.grey.shade400,
     );
   }
 }
-
-

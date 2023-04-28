@@ -30,7 +30,7 @@ class _contactpageState extends State<contactpage> {
           "Contact Info",
           style: appBarTitlestyle,
         ),
-        backgroundColor: Colors.blue,
+        backgroundColor: Color(0xff1D2939),
         centerTitle: true,
       ),
       body: Column(
@@ -55,7 +55,7 @@ class _contactpageState extends State<contactpage> {
                             color: Colors.white,
                           ),
                         ),
-                        color: Colors.blue,
+                        color: Color(0xff1D2939),
                       ),
                       child: const Text(
                         "Contact Detail",
@@ -84,7 +84,7 @@ class _contactpageState extends State<contactpage> {
                             color: Colors.white,
                           ),
                         ),
-                        color: Colors.blue,
+                        color: Color(0xff1D2939),
                       ),
                       child: const Text(
                         "Profile Photo",
@@ -123,7 +123,7 @@ class _contactpageState extends State<contactpage> {
                             Row(
                               children: [
                                 Expanded(
-                                  child:  Icon(
+                                  child: Icon(
                                     Icons.person,
                                     size: 30,
                                   ),
@@ -255,7 +255,6 @@ class _contactpageState extends State<contactpage> {
                                 ),
                                 Expanded(
                                   flex: 11,
-
                                   child: TextFormField(
                                     onSaved: (val) {
                                       Global.a2 = val;
@@ -311,7 +310,7 @@ class _contactpageState extends State<contactpage> {
                               children: [
                                 Row(
                                   mainAxisAlignment:
-                                  MainAxisAlignment.spaceEvenly,
+                                      MainAxisAlignment.spaceEvenly,
                                   children: [
                                     ElevatedButton(
                                         onPressed: () {
@@ -323,10 +322,9 @@ class _contactpageState extends State<contactpage> {
                                         onPressed: () {
                                           setState(() {
                                             Global.name = Global.a1 =
-                                                Global.email = Global
-                                                .a2 = Global
-                                                .a3 =
-                                                Global.contact = null;
+                                                Global.email = Global.a2 =
+                                                    Global.a3 =
+                                                        Global.contact = null;
                                             formkey.currentState!.reset();
                                           });
                                         },
@@ -363,43 +361,43 @@ class _contactpageState extends State<contactpage> {
                           showDialog(
                               context: context,
                               builder: (context) => AlertDialog(
-                                title: const Text("Select the Method..."),
-                                actions: [
-                                  TextButton.icon(
-                                    onPressed: () async {
-                                      Navigator.of(context).pop();
+                                    title: const Text("Select the Method..."),
+                                    actions: [
+                                      TextButton.icon(
+                                        onPressed: () async {
+                                          Navigator.of(context).pop();
 
-                                      XFile? img = await picker.pickImage(
-                                          source: ImageSource.camera);
+                                          XFile? img = await picker.pickImage(
+                                              source: ImageSource.camera);
 
-                                      if (img != null) {
-                                        setState(() {
-                                          Global.image = File(img.path);
-                                        });
-                                      }
-                                      ;
-                                    },
-                                    label: const Text("Camera"),
-                                    icon: const Icon(Icons.camera_alt),
-                                  ),
-                                  TextButton.icon(
-                                    onPressed: () async {
-                                      Navigator.of(context).pop();
+                                          if (img != null) {
+                                            setState(() {
+                                              Global.image = File(img.path);
+                                            });
+                                          }
+                                          ;
+                                        },
+                                        label: const Text("Camera"),
+                                        icon: const Icon(Icons.camera_alt),
+                                      ),
+                                      TextButton.icon(
+                                        onPressed: () async {
+                                          Navigator.of(context).pop();
 
-                                      XFile? img = await picker.pickImage(
-                                          source: ImageSource.gallery);
+                                          XFile? img = await picker.pickImage(
+                                              source: ImageSource.gallery);
 
-                                      if (img != null) {
-                                        setState(() {
-                                          Global.image = File(img.path);
-                                        });
-                                      }
-                                    },
-                                    label: const Text("Gallery"),
-                                    icon: const Icon(Icons.image),
-                                  ),
-                                ],
-                              ));
+                                          if (img != null) {
+                                            setState(() {
+                                              Global.image = File(img.path);
+                                            });
+                                          }
+                                        },
+                                        label: const Text("Gallery"),
+                                        icon: const Icon(Icons.image),
+                                      ),
+                                    ],
+                                  ));
                         },
                         mini: true,
                         shape: RoundedRectangleBorder(

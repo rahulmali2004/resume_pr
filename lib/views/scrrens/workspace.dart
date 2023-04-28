@@ -16,9 +16,15 @@ class _workspaceState extends State<workspace> {
     Size s = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        actions: [IconButton(onPressed: (){
-          Navigator.of(context).pushNamed("PDF_page");
-        },icon: Icon(Icons.picture_as_pdf),color: Colors.white,)],
+        actions: [
+          IconButton(
+            onPressed: () {
+              Navigator.of(context).pushNamed("PDF_page");
+            },
+            icon: Icon(Icons.picture_as_pdf),
+            color: Colors.white,
+          )
+        ],
         leading: IconButton(
           onPressed: () {
             Navigator.of(context).pop();
@@ -29,7 +35,7 @@ class _workspaceState extends State<workspace> {
           ),
         ),
         title: Text("Resume workspace", style: appBarTitlestyle),
-        backgroundColor: Colors.blue,
+        backgroundColor: Color(0xff1D2939),
         centerTitle: true,
         elevation: 0,
       ),
@@ -39,7 +45,7 @@ class _workspaceState extends State<workspace> {
             child: Container(
               width: s.width,
               decoration: BoxDecoration(
-                color: Colors.blue,
+                color: Color(0xff1D2939),
                 borderRadius: BorderRadius.vertical(
                   bottom: Radius.circular(30),
                 ),

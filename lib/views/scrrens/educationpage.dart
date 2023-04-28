@@ -27,7 +27,7 @@ class _educationpageState extends State<educationpage> {
             fontWeight: FontWeight.bold,
           ),
         ),
-        backgroundColor: Colors.blue,
+        backgroundColor: Color(0xff1D2939),
         centerTitle: true,
       ),
       body: Padding(
@@ -83,7 +83,6 @@ class _educationpageState extends State<educationpage> {
                                 return null;
                               }
                             },
-
                           ),
                           SizedBox(
                             height: 30,
@@ -146,8 +145,8 @@ class _educationpageState extends State<educationpage> {
                                   TextFormField(
                                     decoration: InputDecoration(
                                       hintText: "70% (or) 7.0 CGPA",
-                                      hintStyle:
-                                          TextStyle(color: Colors.grey.shade400),
+                                      hintStyle: TextStyle(
+                                          color: Colors.grey.shade400),
                                       border: OutlineInputBorder(),
                                     ),
                                     onSaved: (val) {
@@ -188,8 +187,8 @@ class _educationpageState extends State<educationpage> {
                                     TextFormField(
                                       decoration: InputDecoration(
                                         hintText: "2019",
-                                        hintStyle:
-                                            TextStyle(color: Colors.grey.shade400),
+                                        hintStyle: TextStyle(
+                                            color: Colors.grey.shade400),
                                         border: OutlineInputBorder(),
                                       ),
                                       onSaved: (val) {

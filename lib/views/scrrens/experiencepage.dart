@@ -31,7 +31,7 @@ class _experiencepageState extends State<experiencepage> {
           ),
         ),
         centerTitle: true,
-        backgroundColor: Colors.blue,
+        backgroundColor: Color(0xff1D2939),
       ),
       body: SingleChildScrollView(
         physics: BouncingScrollPhysics(),
@@ -188,11 +188,11 @@ class _experiencepageState extends State<experiencepage> {
                     RadioListTile(
                         value: "",
                         title: Text(
-                            "Currently Employed",
+                          "Currently Employed",
                           style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.blue,
-                              fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.blue,
+                            fontSize: 18,
                           ),
                         ),
                         groupValue: previously,
@@ -205,135 +205,134 @@ class _experiencepageState extends State<experiencepage> {
                     SizedBox(
                       height: 10,
                     ),
-                        Row(
-                          children: [
-                            Container(
-                              height: s.height * 0.12,
-                              width: s.width * 0.38,
-                              decoration: const BoxDecoration(
-                                color: Colors.transparent,
+                    Row(
+                      children: [
+                        Container(
+                          height: s.height * 0.12,
+                          width: s.width * 0.38,
+                          decoration: const BoxDecoration(
+                            color: Colors.transparent,
+                          ),
+                          child: Column(
+                            children: [
+                              Text(
+                                "Date Joined",
+                                style: TextStyle(
+                                  color: Colors.grey.shade700,
+                                  fontSize: 20,
+                                ),
                               ),
-                              child: Column(
-                                children: [
-                                  Text(
-                                    "Date Joined",
-                                    style: TextStyle(
-                                      color: Colors.grey.shade700,
-                                      fontSize: 20,
-                                    ),
-                                  ),
-                                  TextFormField(
-                                    textInputAction: TextInputAction.next,
-                                    validator: (value) {
-                                      if (value!.isEmpty) {
-                                        const Text("Date !!");
-                                      } else {
-                                        return null;
-                                      }
-                                    },
-                                    onSaved: (value) {
-                                      return null;
-                                    },
-                                    decoration: InputDecoration(
-                                      border: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(10),
-                                      ),
-                                      contentPadding: const EdgeInsets.all(5),
-                                      hintText: "DD/MM/YYYY",
-                                      hintStyle: TextStyle(
-                                        color: Colors.grey.shade400,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            const Spacer(),
-                            Container(
-                              height: s.height * 0.12,
-                              width: s.width * 0.38,
-                              decoration: const BoxDecoration(
-                                color: Colors.transparent,
-                              ),
-                              child: Column(
-                                children: [
-                                  Text(
-                                    "Data Exit",
-                                    style: TextStyle(
-                                      color: Colors.grey.shade700,
-                                      fontSize: 20,
-                                    ),
-                                  ),
-                                  TextFormField(
-                                    validator: (value) {
-                                      if (value!.isEmpty == null) {
-                                        const Text("Date!!");
-                                      } else {
-                                        return null;
-                                      }
-                                    },
-                                    onSaved: (value) {
-                                      Global.exprience!;
-                                    },
-                                    decoration: InputDecoration(
-                                      border: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(10),
-                                      ),
-                                      contentPadding: const EdgeInsets.all(5),
-                                      hintText: "DD/MM/YYYY",
-                                      hintStyle: TextStyle(
-                                        color: Colors.grey.shade400,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            GestureDetector(
-                              onTap: () {
-                                setState(
-                                      () {},
-                                );
-                              },
-                              child: TextButton(
-                                onPressed: () {
-                                  setState(() {
-                                    if (formkey.currentState!.validate()) {
-                                      formkey.currentState!.save();
-                                      ScaffoldMessenger.of(context).showSnackBar(
-                                    mySnackBar(
-                                          text: "Successfully validated !!",
-                                          color: Colors.green,
-                                        ),
-                                      );
-                                    } else {
-                                      ScaffoldMessenger.of(context).showSnackBar(
-                                      mySnackBar(
-                                          text: "Failled to validate !!",
-                                          color: Colors.red,
-                                        ),
-                                      );
-                                    }
-                                  });
+                              TextFormField(
+                                textInputAction: TextInputAction.next,
+                                validator: (value) {
+                                  if (value!.isEmpty) {
+                                    const Text("Date !!");
+                                  } else {
+                                    return null;
+                                  }
                                 },
-                                child: const Text(
-                                  "SAVE",
-                                  style: TextStyle(
-                                    color: Colors.blue,
-                                    fontSize: 22,
+                                onSaved: (value) {
+                                  return null;
+                                },
+                                decoration: InputDecoration(
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                  contentPadding: const EdgeInsets.all(5),
+                                  hintText: "DD/MM/YYYY",
+                                  hintStyle: TextStyle(
+                                    color: Colors.grey.shade400,
                                   ),
                                 ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
-
+                        const Spacer(),
+                        Container(
+                          height: s.height * 0.12,
+                          width: s.width * 0.38,
+                          decoration: const BoxDecoration(
+                            color: Colors.transparent,
+                          ),
+                          child: Column(
+                            children: [
+                              Text(
+                                "Data Exit",
+                                style: TextStyle(
+                                  color: Colors.grey.shade700,
+                                  fontSize: 20,
+                                ),
+                              ),
+                              TextFormField(
+                                validator: (value) {
+                                  if (value!.isEmpty == null) {
+                                    const Text("Date!!");
+                                  } else {
+                                    return null;
+                                  }
+                                },
+                                onSaved: (value) {
+                                  Global.exprience!;
+                                },
+                                decoration: InputDecoration(
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                  contentPadding: const EdgeInsets.all(5),
+                                  hintText: "DD/MM/YYYY",
+                                  hintStyle: TextStyle(
+                                    color: Colors.grey.shade400,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        GestureDetector(
+                          onTap: () {
+                            setState(
+                              () {},
+                            );
+                          },
+                          child: TextButton(
+                            onPressed: () {
+                              setState(() {
+                                if (formkey.currentState!.validate()) {
+                                  formkey.currentState!.save();
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    mySnackBar(
+                                      text: "Successfully validated !!",
+                                      color: Colors.green,
+                                    ),
+                                  );
+                                } else {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    mySnackBar(
+                                      text: "Failled to validate !!",
+                                      color: Colors.red,
+                                    ),
+                                  );
+                                }
+                              });
+                            },
+                            child: const Text(
+                              "SAVE",
+                              style: TextStyle(
+                                color: Colors.blue,
+                                fontSize: 22,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ],
                 ),
               ),

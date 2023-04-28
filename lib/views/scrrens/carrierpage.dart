@@ -25,7 +25,7 @@ class _carrierpageState extends State<carrierpage> {
               fontWeight: FontWeight.bold, fontSize: 22, color: Colors.white),
         ),
         centerTitle: true,
-        backgroundColor: Colors.blue,
+        backgroundColor: Color(0xff1D2939),
       ),
       body: SingleChildScrollView(
         physics: BouncingScrollPhysics(),
@@ -136,8 +136,7 @@ class _carrierpageState extends State<carrierpage> {
                         ),
                       ),
                       Row(
-                        mainAxisAlignment:
-                        MainAxisAlignment.spaceEvenly,
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           ElevatedButton(
                               onPressed: () {

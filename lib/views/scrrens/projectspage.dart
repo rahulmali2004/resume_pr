@@ -30,7 +30,7 @@ class _projectspageState extends State<projectspage> {
           ),
         ),
         centerTitle: true,
-        backgroundColor: Colors.blue,
+        backgroundColor: Color(0xff1D2939),
       ),
       body: Padding(
         padding: EdgeInsets.all(10),
