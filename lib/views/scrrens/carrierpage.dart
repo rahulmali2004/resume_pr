@@ -54,7 +54,7 @@ class _carrierpageState extends State<carrierpage> {
                             style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.bold,
-                              color: Colors.blue,
+                              color: Color(0xff1D2939),
                             ),
                           ),
                         ),
@@ -107,7 +107,7 @@ class _carrierpageState extends State<carrierpage> {
                             style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.bold,
-                              color: Colors.blue,
+                              color: Color(0xff1D2939),
                             ),
                           ),
                         ),

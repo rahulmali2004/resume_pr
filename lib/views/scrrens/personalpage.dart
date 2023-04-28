@@ -48,7 +48,7 @@ class _personalpageState extends State<personalpage> {
                     "Date of Birth",
                     style: TextStyle(
                         fontSize: 18,
-                        color: Colors.blue,
+                        color: Color(0xff1D2939),
                         fontWeight: FontWeight.bold),
                   ),
                   SizedBox(
@@ -125,7 +125,7 @@ class _personalpageState extends State<personalpage> {
                     "Marital Status",
                     style: TextStyle(
                         fontSize: 18,
-                        color: Colors.blue,
+                        color: Color(0xff1D2939),
                         fontWeight: FontWeight.bold),
                   ),
                   SizedBox(
@@ -157,7 +157,7 @@ class _personalpageState extends State<personalpage> {
                     style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
-                        color: Colors.blue),
+                        color: Color(0xff1D2939)),
                   ),
                   CheckboxListTile(
                       value: Englishcheckbox,
@@ -197,7 +197,7 @@ class _personalpageState extends State<personalpage> {
                         style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
-                            color: Colors.blue),
+                            color: Color(0xff1D2939)),
                       ),
                     ],
                   ),
