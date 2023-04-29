@@ -47,76 +47,30 @@ class _personalpageState extends State<personalpage> {
                   Text(
                     "Date of Birth",
                     style: TextStyle(
-                        fontSize: 18,
-                        color: Color(0xff1D2939),
-                        fontWeight: FontWeight.bold),
+                      color: Color(0xff1D2939),
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: TextFormField(
-                          keyboardType: TextInputType.number,
-                          textAlign: TextAlign.center,
-                          decoration: InputDecoration(
-                              border: OutlineInputBorder(), hintText: "DD/"),
-                          onSaved: (val) {
-                            Global.b1 = val;
-                          },
-                          validator: (val) {
-                            if (val!.isEmpty) {
-                              return "Enter Your Name";
-                            } else {
-                              return null;
-                            }
-                          },
-                        ),
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Expanded(
-                        child: TextFormField(
-                          keyboardType: TextInputType.number,
-                          textAlign: TextAlign.center,
-                          decoration: InputDecoration(
-                              border: OutlineInputBorder(), hintText: "MM/"),
-                          onSaved: (val) {
-                            Global.b2 = val;
-                          },
-                          validator: (val) {
-                            if (val!.isEmpty) {
-                              return "Enter Your Name";
-                            } else {
-                              return null;
-                            }
-                          },
-                        ),
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Expanded(
-                        child: TextFormField(
-                          keyboardType: TextInputType.number,
-                          textAlign: TextAlign.center,
-                          decoration: InputDecoration(
-                              border: OutlineInputBorder(), hintText: "YYYY"),
-                          onSaved: (val) {
-                            Global.b3 = val;
-                          },
-                          validator: (val) {
-                            if (val!.isEmpty) {
-                              return "Enter Your Name";
-                            } else {
-                              return null;
-                            }
-                          },
-                        ),
-                      ),
-                    ],
+                  TextFormField(
+                    textInputAction: TextInputAction.next,
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        const Text("Date !!");
+                      } else {
+                        return null;
+                      }
+                    },
+                    onSaved: (value) {
+                      return null;
+                    },
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      contentPadding: const EdgeInsets.all(5),
+                      hintText: "DD/MM/YYYY",
+                      hintStyle:
+                          TextStyle(color: Colors.grey.shade400, fontSize: 20),
+                    ),
                   ),
                   SizedBox(
                     height: 10,

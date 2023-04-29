@@ -213,39 +213,42 @@ class _experiencepageState extends State<experiencepage> {
                           decoration: const BoxDecoration(
                             color: Colors.transparent,
                           ),
-                          child: Column(
-                            children: [
-                              Text(
-                                "Date Joined",
-                                style: TextStyle(
-                                  color: Colors.grey.shade700,
-                                  fontSize: 20,
+                          child: Padding(
+                            padding: const EdgeInsets.all(10),
+                            child: Column(
+                              children: [
+                                Text(
+                                  "Date Joined",
+                                  style: TextStyle(
+                                    color: Colors.grey.shade700,
+                                    fontSize: 20,
+                                  ),
                                 ),
-                              ),
-                              TextFormField(
-                                textInputAction: TextInputAction.next,
-                                validator: (value) {
-                                  if (value!.isEmpty) {
-                                    const Text("Date !!");
-                                  } else {
+                                TextFormField(
+                                  textInputAction: TextInputAction.next,
+                                  validator: (value) {
+                                    if (value!.isEmpty) {
+                                      const Text("Date !!");
+                                    } else {
+                                      return null;
+                                    }
+                                  },
+                                  onSaved: (value) {
                                     return null;
-                                  }
-                                },
-                                onSaved: (value) {
-                                  return null;
-                                },
-                                decoration: InputDecoration(
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  contentPadding: const EdgeInsets.all(5),
-                                  hintText: "DD/MM/YYYY",
-                                  hintStyle: TextStyle(
-                                    color: Colors.grey.shade400,
+                                  },
+                                  decoration: InputDecoration(
+                                    border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                    contentPadding: const EdgeInsets.all(5),
+                                    hintText: "DD/MM/YYYY",
+                                    hintStyle: TextStyle(
+                                      color: Colors.grey.shade400,
+                                    ),
                                   ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         ),
                         const Spacer(),
@@ -255,38 +258,41 @@ class _experiencepageState extends State<experiencepage> {
                           decoration: const BoxDecoration(
                             color: Colors.transparent,
                           ),
-                          child: Column(
-                            children: [
-                              Text(
-                                "Data Exit",
-                                style: TextStyle(
-                                  color: Colors.grey.shade700,
-                                  fontSize: 20,
-                                ),
-                              ),
-                              TextFormField(
-                                validator: (value) {
-                                  if (value!.isEmpty == null) {
-                                    const Text("Date!!");
-                                  } else {
-                                    return null;
-                                  }
-                                },
-                                onSaved: (value) {
-                                  Global.exprience!;
-                                },
-                                decoration: InputDecoration(
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  contentPadding: const EdgeInsets.all(5),
-                                  hintText: "DD/MM/YYYY",
-                                  hintStyle: TextStyle(
-                                    color: Colors.grey.shade400,
+                          child: Padding(
+                            padding: const EdgeInsets.all(10),
+                            child: Column(
+                              children: [
+                                Text(
+                                  "Data Exit",
+                                  style: TextStyle(
+                                    color: Colors.grey.shade700,
+                                    fontSize: 20,
                                   ),
                                 ),
-                              ),
-                            ],
+                                TextFormField(
+                                  validator: (value) {
+                                    if (value!.isEmpty == null) {
+                                      const Text("Date!!");
+                                    } else {
+                                      return null;
+                                    }
+                                  },
+                                  onSaved: (value) {
+                                    Global.exprience!;
+                                  },
+                                  decoration: InputDecoration(
+                                    border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                    contentPadding: const EdgeInsets.all(5),
+                                    hintText: "DD/MM/YYYY",
+                                    hintStyle: TextStyle(
+                                      color: Colors.grey.shade400,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ],

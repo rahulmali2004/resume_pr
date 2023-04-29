@@ -1,8 +1,6 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
+import 'package:resume_pr/modals/globals_page.dart';
 
-import '../../modals/globals_page.dart';
 import '../components/iconbackpage.dart';
 
 class achievementspage extends StatefulWidget {
@@ -13,18 +11,55 @@ class achievementspage extends StatefulWidget {
 }
 
 class _achievementspageState extends State<achievementspage> {
-//   String achiev = "";
+  @override
+  void dispose() {
+    super.dispose();
 
-  bool achiev = true;
+    Global.myachievControllers.removeWhere((element) {
+      if (element.text == "") {
+        print(
+            "REMOVED: ${Global.myachievControllers.indexOf(element)}\t\tVALUE: ${element.text}");
+        return true;
+      } else {
+        print(
+            "SKIPPED: ${Global.myachievControllers.indexOf(element)}\t\tVALUE: ${element.text}");
+        return false;
+      }
+    });
+
+    Global.myachievControllers.forEach((element) {
+      Global.achiev.add("");
+      Global.achiev[Global.myachievControllers.indexOf(element)] = element.text;
+    });
+
+    Global.achiev.removeWhere((element) => element == "");
+
+    if (Global.myachievControllers.isEmpty) {
+      for (int i = 0; i < 2; i++) {
+        Global.myachievControllers.add(TextEditingController());
+      }
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    if (Global.myachievControllers.isEmpty) {
+      for (int i = 0; i < 2; i++) {
+        Global.myachievControllers.add(TextEditingController());
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         leading: Mybackicon(),
         title: Text(
-          "ACHIEVEMENTSPAGE",
+          "Achievements",
           style: TextStyle(
-            fontWeight: FontWeight.w700,
+            fontWeight: FontWeight.bold,
             fontSize: 22,
             color: Colors.white,
           ),
@@ -48,59 +83,69 @@ class _achievementspageState extends State<achievementspage> {
                 Align(
                   alignment: Alignment.center,
                   child: Text(
-                    "Enter Achievements",
+                    "Enter achievements",
                     style: TextStyle(
                       color: Colors.grey.shade500,
                       fontSize: 22,
                     ),
                   ),
                 ),
-                ...Global.achiev
-                    .map(
-                      (e) => Row(
-                        children: [
-                          Expanded(
-                            child: TextField(
-                              decoration: InputDecoration(
-                                hintText: "Exceeded Sales 17% Avearage",
-                                hintStyle: TextStyle(
-                                  fontSize: 14,
-                                ),
-                              ),
-                              onChanged: (val) {},
-                            ),
-                          ),
-                          IconButton(
-                              onPressed: () {
-                                setState(() {
-                                  Global.achiev.remove(e);
-                                });
-                              },
-                              icon: Icon(Icons.delete))
-                        ],
-                      ),
-                    )
-                    .toList(),
-                SizedBox(
-                  height: 10,
+                ...List.generate(
+                  Global.myachievControllers.length,
+                  (index) => MyachievTile(index: index),
                 ),
-                SizedBox(
-                  width: double.infinity,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      setState(() {
-                        Global.achiev.add("");
-                      });
-                    },
-                    child: Icon(Icons.add),
-                  ),
+                const SizedBox(
+                  height: 15,
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: ElevatedButton(
+                        onPressed: () {
+                          setState(() {
+                            Global.myachievControllers
+                                .add(TextEditingController());
+                          });
+                        },
+                        child: const Icon(Icons.add),
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),
           ),
         ),
       ),
-      backgroundColor: Colors.grey,
+      backgroundColor: Colors.grey.shade200,
+    );
+  }
+
+  Widget MyachievTile({required int index}) {
+    return Row(
+      children: [
+        Expanded(
+          child: TextField(
+            controller: Global.myachievControllers[index],
+            decoration: const InputDecoration(
+              hintText: "Exceeded Sales 17% Avearage",
+              hintStyle: TextStyle(
+                fontSize: 22,
+              ),
+            ),
+          ),
+        ),
+        IconButton(
+          onPressed: () {
+            setState(() {
+              Global.myachievControllers.removeAt(index);
+            });
+          },
+          icon: const Icon(
+            Icons.delete,
+          ),
+        ),
+      ],
     );
   }
 }

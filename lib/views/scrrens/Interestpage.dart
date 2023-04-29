@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:resume_pr/modals/globals_page.dart';
 
-import '../../modals/globals_page.dart';
 import '../components/iconbackpage.dart';
 
 class interestpage extends StatefulWidget {
@@ -12,15 +12,56 @@ class interestpage extends StatefulWidget {
 
 class _interestpageState extends State<interestpage> {
   @override
+  void dispose() {
+    super.dispose();
+
+    Global.myhobbiesControllers.removeWhere((element) {
+      if (element.text == "") {
+        print(
+            "REMOVED: ${Global.myhobbiesControllers.indexOf(element)}\t\tVALUE: ${element.text}");
+        return true;
+      } else {
+        print(
+            "SKIPPED: ${Global.myhobbiesControllers.indexOf(element)}\t\tVALUE: ${element.text}");
+        return false;
+      }
+    });
+
+    Global.myhobbiesControllers.forEach((element) {
+      Global.achiev.add("");
+      Global.achiev[Global.myhobbiesControllers.indexOf(element)] =
+          element.text;
+    });
+
+    Global.achiev.removeWhere((element) => element == "");
+
+    if (Global.myhobbiesControllers.isEmpty) {
+      for (int i = 0; i < 2; i++) {
+        Global.myhobbiesControllers.add(TextEditingController());
+      }
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    if (Global.myhobbiesControllers.isEmpty) {
+      for (int i = 0; i < 2; i++) {
+        Global.myhobbiesControllers.add(TextEditingController());
+      }
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         leading: Mybackicon(),
         title: Text(
-          "INTEREST",
+          "Interestpage",
           style: TextStyle(
+            fontWeight: FontWeight.bold,
             fontSize: 22,
-            fontWeight: FontWeight.w700,
             color: Colors.white,
           ),
         ),
@@ -43,57 +84,69 @@ class _interestpageState extends State<interestpage> {
                 Align(
                   alignment: Alignment.center,
                   child: Text(
-                    "Enter Your hobbies",
+                    "Enter Interest",
                     style: TextStyle(
                       color: Colors.grey.shade500,
                       fontSize: 22,
                     ),
                   ),
                 ),
-                ...Global.hobbies
-                    .map(
-                      (e) => Row(
-                        children: [
-                          Expanded(
-                            child: TextField(
-                              decoration: InputDecoration(
-                                hintText: "Hobbies Name",
-                                hintStyle: TextStyle(
-                                  fontSize: 18,
-                                ),
-                              ),
-                              onChanged: (val) {},
-                            ),
-                          ),
-                          IconButton(
-                              onPressed: () {
-                                setState(() {});
-                              },
-                              icon: Icon(Icons.delete))
-                        ],
-                      ),
-                    )
-                    .toList(),
-                SizedBox(
-                  height: 10,
+                ...List.generate(
+                  Global.myhobbiesControllers.length,
+                  (index) => MyhobbyTile(index: index),
                 ),
-                SizedBox(
-                  width: double.infinity,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      setState(() {
-                        Global.hobbies.add("");
-                      });
-                    },
-                    child: Icon(Icons.add),
-                  ),
+                const SizedBox(
+                  height: 15,
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: ElevatedButton(
+                        onPressed: () {
+                          setState(() {
+                            Global.myhobbiesControllers
+                                .add(TextEditingController());
+                          });
+                        },
+                        child: const Icon(Icons.add),
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),
           ),
         ),
       ),
-      backgroundColor: Colors.grey,
+      backgroundColor: Colors.grey.shade200,
+    );
+  }
+
+  Widget MyhobbyTile({required int index}) {
+    return Row(
+      children: [
+        Expanded(
+          child: TextField(
+            controller: Global.myhobbiesControllers[index],
+            decoration: const InputDecoration(
+              hintText: "Hobbies Name",
+              hintStyle: TextStyle(
+                fontSize: 22,
+              ),
+            ),
+          ),
+        ),
+        IconButton(
+          onPressed: () {
+            setState(() {
+              Global.myhobbiesControllers.removeAt(index);
+            });
+          },
+          icon: const Icon(
+            Icons.delete,
+          ),
+        ),
+      ],
     );
   }
 }

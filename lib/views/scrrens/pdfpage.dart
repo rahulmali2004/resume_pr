@@ -166,7 +166,7 @@ class _pdfpageState extends State<pdfpage> {
                           pw.Text(
                             "Skills",
                             style: pw.TextStyle(
-                              fontSize: 18,
+                              fontSize: 24,
                               color: PdfColors.blue,
                               fontWeight: pw.FontWeight.bold,
                             ),
@@ -178,8 +178,9 @@ class _pdfpageState extends State<pdfpage> {
                                 (e) => pw.Text(
                                   "$e",
                                   style: pw.TextStyle(
-                                    fontSize: 26,
+                                    fontSize: 20,
                                     color: PdfColors.white,
+                                    fontWeight: pw.FontWeight.bold,
                                   ),
                                 ),
                               )
@@ -195,7 +196,7 @@ class _pdfpageState extends State<pdfpage> {
                 child: pw.Column(
                   children: [
                     pw.Padding(
-                      padding: pw.EdgeInsets.all(30),
+                      padding: pw.EdgeInsets.all(20),
                       child: pw.Column(
                         mainAxisAlignment: pw.MainAxisAlignment.spaceEvenly,
                         children: [
@@ -221,12 +222,91 @@ class _pdfpageState extends State<pdfpage> {
                                   color: PdfColors.black,
                                 )),
                           ),
-                          pw.Text("${Global.b1}",
-                              textAlign: pw.TextAlign.left,
-                              style: pw.TextStyle(
-                                fontSize: 18,
-                                color: PdfColors.black,
-                              )),
+                          // pw.Text("${Global.personal}",
+                          //     textAlign: pw.TextAlign.left,
+                          //     style: pw.TextStyle(
+                          //       fontSize: 18,
+                          //       color: PdfColors.black,
+                          //     )),
+                          pw.SizedBox(height: 40),
+                          pw.Divider(),
+                          pw.Text(
+                            "Education Details",
+                            style: pw.TextStyle(
+                              fontSize: 25,
+                              fontWeight: pw.FontWeight.bold,
+                              color: PdfColors.blue,
+                            ),
+                          ),
+                          pw.Divider(),
+                          pw.SizedBox(
+                            height: 40,
+                          ),
+                          pw.Divider(),
+                          pw.Text(
+                            "Experience",
+                            style: pw.TextStyle(
+                              fontSize: 25,
+                              fontWeight: pw.FontWeight.bold,
+                              color: PdfColors.blue,
+                            ),
+                          ),
+                          pw.Divider(),
+                          pw.SizedBox(height: 40),
+                          pw.Divider(),
+                          pw.Text(
+                            "Interest Hobbies",
+                            style: pw.TextStyle(
+                              fontWeight: pw.FontWeight.bold,
+                              color: PdfColors.blue,
+                              fontSize: 25,
+                            ),
+                          ),
+                          pw.Divider(),
+                          pw.SizedBox(height: 40),
+                          pw.Divider(),
+                          pw.Text(
+                            "Projects",
+                            style: pw.TextStyle(
+                              fontWeight: pw.FontWeight.bold,
+                              color: PdfColors.blue,
+                              fontSize: 25,
+                            ),
+                          ),
+                          pw.Divider(),
+                          pw.SizedBox(height: 40),
+                          pw.Divider(),
+                          pw.Text(
+                            "Achievements",
+                            style: pw.TextStyle(
+                              fontWeight: pw.FontWeight.bold,
+                              color: PdfColors.blue,
+                              fontSize: 25,
+                            ),
+                          ),
+                          pw.Divider(),
+                          pw.SizedBox(height: 40),
+                          pw.Divider(),
+                          pw.Text(
+                            "References",
+                            style: pw.TextStyle(
+                              fontWeight: pw.FontWeight.bold,
+                              color: PdfColors.blue,
+                              fontSize: 25,
+                            ),
+                          ),
+                          pw.Divider(),
+                          pw.SizedBox(height: 40),
+                          pw.Divider(),
+                          pw.Text(
+                            "Declaration",
+                            style: pw.TextStyle(
+                              fontWeight: pw.FontWeight.bold,
+                              color: PdfColors.blue,
+                              fontSize: 25,
+                            ),
+                          ),
+                          pw.Divider(),
                         ],
                       ),
                     )

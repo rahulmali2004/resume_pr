@@ -18,8 +18,12 @@ class Global {
 
   static List<String> techanical = [];
   static List<TextEditingController> mySkillsControllers = [];
+
   static List<String> achiev = [];
+  static List<TextEditingController> myachievControllers = [];
+
   static List<String> hobbies = [];
+  static List<TextEditingController> myhobbiesControllers = [];
 
   static String? carrier1;
   static String? carrier2;
@@ -33,6 +37,5 @@ class Global {
 
   static String? declaration;
 
-
-
+  static String? personal;
 }
