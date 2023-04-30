@@ -81,15 +81,15 @@ class _declarationpageState extends State<declarationpage> {
                               TextFormField(
                                 initialValue: Global.declaration,
                                 textInputAction: TextInputAction.next,
-                                validator: (value) {
-                                  if (value!.isEmpty) {
-                                    return "Enter The Descripation";
+                                onSaved: (val) {
+                                  Global.declaration = val;
+                                },
+                                validator: (val) {
+                                  if (val!.isEmpty) {
+                                    return "Enter Declaration";
                                   } else {
                                     return null;
                                   }
-                                },
-                                onSaved: (value) {
-                                  Global.declaration = value;
                                 },
                                 decoration: InputDecoration(
                                   border: OutlineInputBorder(
@@ -135,16 +135,16 @@ class _declarationpageState extends State<declarationpage> {
                                             initialValue: (Global.declaration ==
                                                     null)
                                                 ? null
-                                                : Global.declaration.toString(),
-                                            validator: (value) {
-                                              if (value!.isEmpty) {
-                                                return "Enter The Date";
+                                                : Global.declaration1.toString(),
+                                            onSaved: (val) {
+                                              Global.declaration1 = val;
+                                            },
+                                            validator: (val) {
+                                              if (val!.isEmpty) {
+                                                return "Enter Declaration";
                                               } else {
                                                 return null;
                                               }
-                                            },
-                                            onSaved: (value) {
-                                              Global.declaration;
                                             },
                                             decoration: InputDecoration(
                                               border: OutlineInputBorder(
@@ -185,16 +185,16 @@ class _declarationpageState extends State<declarationpage> {
                                           ),
                                           Spacer(),
                                           TextFormField(
-                                            initialValue: Global.declaration,
-                                            validator: (value) {
-                                              if (value!.isEmpty) {
-                                                return "Enter The Place";
+                                            initialValue: Global.declaration2,
+                                            onSaved: (val) {
+                                              Global.declaration2 = val;
+                                            },
+                                            validator: (val) {
+                                              if (val!.isEmpty) {
+                                                return "Enter Declaration";
                                               } else {
                                                 return null;
                                               }
-                                            },
-                                            onSaved: (value) {
-                                              Global.declaration = value;
                                             },
                                             decoration: InputDecoration(
                                               border: OutlineInputBorder(
@@ -219,41 +219,23 @@ class _declarationpageState extends State<declarationpage> {
                                 height: s.height * 0.008,
                               ),
                               Row(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                mainAxisAlignment: MainAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                 children: [
                                   ElevatedButton(
-                                    onPressed: () {
-                                      setState(() {
-                                        if (formkey.currentState!.validate()) {
-                                          formkey.currentState!.save();
-                                          ScaffoldMessenger.of(context)
-                                              .showSnackBar(
-                                            mySnackBar(
-                                              text: "Successfully validated !!",
-                                              color: Colors.green,
-                                            ),
-                                          );
-                                        } else {
-                                          ScaffoldMessenger.of(context)
-                                              .showSnackBar(
-                                            mySnackBar(
-                                              text: "Failled to validate !!",
-                                              color: Colors.red,
-                                            ),
-                                          );
-                                        }
-                                      });
-                                    },
-                                    child: const Text(
-                                      "SAVE",
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 20,
-                                      ),
-                                    ),
-                                  ),
+                                      onPressed: () {
+                                        formkey.currentState!.validate();
+                                        formkey.currentState!.save();
+                                      },
+                                      child: const Text("Save")),
+                                  ElevatedButton(
+                                      onPressed: () {
+                                        setState(() {
+                                          Global.declaration =Global.declaration1 =
+                                              Global.declaration2 =null;
+                                          formkey.currentState!.reset();
+                                        });
+                                      },
+                                      child: const Text("Reset")),
                                 ],
                               ),
                             ],

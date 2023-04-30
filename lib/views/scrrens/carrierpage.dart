@@ -63,7 +63,6 @@ class _carrierpageState extends State<carrierpage> {
                         padding: const EdgeInsets.only(
                             left: 20, right: 20, bottom: 20),
                         child: TextFormField(
-                          maxLength: 7,
                           decoration: InputDecoration(
                             // contentPadding: EdgeInsets.symmetric(vertical: 70),
                             hintText: "Descripation",
@@ -119,7 +118,7 @@ class _carrierpageState extends State<carrierpage> {
                           textAlign: TextAlign.start,
                           decoration: InputDecoration(
                             contentPadding: EdgeInsets.symmetric(vertical: 20),
-                            hintText: "Software Engineer",
+                            hintText: "  Software Engineer",
                             hintStyle: TextStyle(color: Colors.grey.shade400),
                             border: OutlineInputBorder(),
                           ),

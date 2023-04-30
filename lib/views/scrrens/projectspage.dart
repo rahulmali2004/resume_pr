@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../modals/globals_page.dart';
 import '../components/iconbackpage.dart';
 
 class projectspage extends StatefulWidget {
@@ -76,7 +77,14 @@ class _projectspageState extends State<projectspage> {
                               border: OutlineInputBorder(),
                             ),
                             onSaved: (val) {
-                              projeects = val!;
+                              Global.project = val;
+                            },
+                            validator: (val) {
+                              if (val!.isEmpty) {
+                                return "Enter Resume Builder App";
+                              } else {
+                                return null;
+                              }
                             },
                           ),
                           SizedBox(
@@ -107,8 +115,17 @@ class _projectspageState extends State<projectspage> {
                               onChanged: (val) {
                                 setState(() {
                                   c_programming = val!;
+                                  setState(() {
+                                    c_programming = val!;
+                                    if (c_programming == true) {
+                                      if (!Global.projects.contains("C programming")) {
+                                        Global.projects.add("C programming");
+                                      }
+                                    }
+                                  });
                                 });
-                              }),
+                              }
+                              ),
                           CheckboxListTile(
                               value: dart,
                               title: Text(
@@ -122,6 +139,14 @@ class _projectspageState extends State<projectspage> {
                               onChanged: (val) {
                                 setState(() {
                                   dart = val!;
+                                  setState(() {
+                                    dart = val!;
+                                    if (dart == true) {
+                                      if (!Global.projects.contains("Dart")) {
+                                        Global.projects.add("Dart");
+                                      }
+                                    }
+                                  });
                                 });
                               }),
                           CheckboxListTile(
@@ -137,6 +162,14 @@ class _projectspageState extends State<projectspage> {
                               onChanged: (val) {
                                 setState(() {
                                   flutter = val!;
+                                  setState(() {
+                                    flutter = val!;
+                                    if (flutter == true) {
+                                      if (!Global.projects.contains("Flutter")) {
+                                        Global.projects.add("Flutter");
+                                      }
+                                    }
+                                  });
                                 });
                               }),
                           SizedBox(
@@ -170,7 +203,14 @@ class _projectspageState extends State<projectspage> {
                                     border: OutlineInputBorder(),
                                   ),
                                   onSaved: (val) {
-                                    projeects = val!;
+                                    Global.project1 = val;
+                                  },
+                                  validator: (val) {
+                                    if (val!.isEmpty) {
+                                      return "Enter Roles";
+                                    } else {
+                                      return null;
+                                    }
                                   },
                                 ),
                                 SizedBox(
@@ -203,7 +243,14 @@ class _projectspageState extends State<projectspage> {
                                           border: OutlineInputBorder(),
                                         ),
                                         onSaved: (val) {
-                                          projeects = val!;
+                                          Global.project2 = val;
+                                        },
+                                        validator: (val) {
+                                          if (val!.isEmpty) {
+                                            return "Enter technologies";
+                                          } else {
+                                            return null;
+                                          }
                                         },
                                       ),
                                       SizedBox(
@@ -240,17 +287,35 @@ class _projectspageState extends State<projectspage> {
                                                 border: OutlineInputBorder(),
                                               ),
                                               onSaved: (val) {
-                                                projeects = val!;
+                                                Global.project3 = val;
+                                              },
+                                              validator: (val) {
+                                                if (val!.isEmpty) {
+                                                  return "Enter Project descripation";
+                                                } else {
+                                                  return null;
+                                                }
                                               },
                                             ),
-                                            ElevatedButton(
-                                              onPressed: () {},
-                                              child: Text(
-                                                "SAVE",
-                                                style: TextStyle(
-                                                  color: Colors.blue,
-                                                ),
-                                              ),
+                                            Row(
+                                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                              children: [
+                                                ElevatedButton(
+                                                    onPressed: () {
+                                                      formkey.currentState!.validate();
+                                                      formkey.currentState!.save();
+                                                    },
+                                                    child: const Text("Save")),
+                                                ElevatedButton(
+                                                    onPressed: () {
+                                                      setState(() {
+                                                        Global.project= Global.project1 =
+                                                            Global.project2 = Global.project3 = null;
+                                                        formkey.currentState!.reset();
+                                                      });
+                                                    },
+                                                    child: const Text("Reset")),
+                                              ],
                                             ),
                                           ],
                                         ),

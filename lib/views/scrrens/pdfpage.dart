@@ -49,46 +49,65 @@ class _pdfpageState extends State<pdfpage> {
                               ),
                             ),
                           ),
-                          pw.SizedBox(height: 10),
-                          pw.Divider(
-                            color: PdfColors.blue,
-                          ),
-                          pw.SizedBox(height: 10),
+
+                          pw.Divider(color: PdfColors.blue),
                           pw.Text(
-                            "Carrier",
+                            "Personal Details",
                             style: pw.TextStyle(
-                              fontSize: 24,
+                              fontWeight: pw.FontWeight.bold,
                               color: PdfColors.blue,
-                              fontWeight: pw.FontWeight.bold,
+                              fontSize: 20,
                             ),
                           ),
-                          pw.Divider(
-                            color: PdfColors.blue,
-                          ),
-                          pw.Text(
-                            "${Global.carrier1}",
-                            style: pw.TextStyle(
-                              fontSize: 18,
-                              color: PdfColors.white,
-                              fontWeight: pw.FontWeight.bold,
-                            ),
-                          ),
-                          pw.SizedBox(
-                            height: 10,
-                          ),
-                          pw.Text(
-                            "${Global.carrier2}",
-                            style: pw.TextStyle(
-                              fontSize: 18,
-                              color: PdfColors.white,
-                              fontWeight: pw.FontWeight.bold,
-                            ),
-                          ),
-                          pw.SizedBox(
-                            height: 20,
+                          pw.SizedBox(height: 5),
+                          pw.Divider(color: PdfColors.blue),
+                          pw.Column(
+                            crossAxisAlignment: pw.CrossAxisAlignment.start,
+                            children: [
+                              pw.Text(
+                                "DOB:- ${Global.b1}",
+                                style: pw.TextStyle(
+                                  fontSize: 20,
+
+                                  color: PdfColors.white,
+                                  fontWeight: pw.FontWeight.bold,
+                                ),
+                              ),
+                              pw.SizedBox(height: 5),
+                              pw.Text(
+                                "marital:- ${Global.maritstatus}",
+                                style: pw.TextStyle(
+                                  fontSize: 20,
+                                  color: PdfColors.white,
+                                  fontWeight: pw.FontWeight.bold,
+                                ),
+                              ),
+                              pw.SizedBox(height: 5),
+                              ...Global.language
+                                  .map(
+                                    (e) => pw.Text(
+                                  "Language:-$e",
+                                  style: pw.TextStyle(
+                                    fontSize: 20,
+                                    color: PdfColors.white,
+                                    fontWeight: pw.FontWeight.bold,
+                                  ),
+                                ),
+                              )
+                                  .toList(),
+                              pw.SizedBox(height: 5),
+                              pw.Text(
+                                "Nationality:- ${Global.nationality}",
+                                style: pw.TextStyle(
+                                  fontSize: 20,
+                                  color: PdfColors.white,
+                                  fontWeight: pw.FontWeight.bold,
+                                ),
+                              ),
+                              pw.SizedBox(height: 5),
+                            ]
                           ),
                           pw.Divider(color: PdfColors.blue),
-                          pw.SizedBox(height: 10),
                           pw.Text(
                             "Skills",
                             style: pw.TextStyle(
@@ -98,10 +117,12 @@ class _pdfpageState extends State<pdfpage> {
                             ),
                           ),
                           pw.Divider(color: PdfColors.blue),
-                          pw.SizedBox(height: 10),
-                          ...Global.techanical
-                              .map(
-                                (e) => pw.Text(
+                          pw.Column(
+                            crossAxisAlignment: pw.CrossAxisAlignment.start,
+                            children: [
+                              ...Global.techanical
+                                  .map(
+                                    (e) => pw.Text(
                                   "$e",
                                   style: pw.TextStyle(
                                     fontSize: 20,
@@ -110,22 +131,25 @@ class _pdfpageState extends State<pdfpage> {
                                   ),
                                 ),
                               )
-                              .toList(),
-                          pw.SizedBox(height: 10),
+                                  .toList(),
+                            ]
+                          ),
                           pw.Divider(color: PdfColors.blue),
                           pw.Text(
                             "Hobbies",
                             style: pw.TextStyle(
                               fontWeight: pw.FontWeight.bold,
                               color: PdfColors.blue,
-                              fontSize: 25,
+                              fontSize: 20,
                             ),
                           ),
                           pw.Divider(color: PdfColors.blue),
-                          pw.SizedBox(height: 10),
-                          ...Global.hobbies
-                              .map(
-                                (e) => pw.Text(
+                          pw.Column(
+                            crossAxisAlignment: pw.CrossAxisAlignment.start,
+                            children: [
+                              ...Global.hobbies
+                                  .map(
+                                    (e) => pw.Text(
                                   "$e",
                                   style: pw.TextStyle(
                                     fontSize: 20,
@@ -134,7 +158,78 @@ class _pdfpageState extends State<pdfpage> {
                                   ),
                                 ),
                               )
-                              .toList(),
+                                  .toList(),
+                            ]
+                          ),
+                          pw.Divider(color: PdfColors.blue),
+                          pw.Text(
+                            "Achievments",
+                            style: pw.TextStyle(
+                              fontWeight: pw.FontWeight.bold,
+                              color: PdfColors.blue,
+                              fontSize: 20,
+                            ),
+                          ),
+                          pw.Divider(color: PdfColors.blue),
+                          pw.Column(
+                              crossAxisAlignment: pw.CrossAxisAlignment.start,
+                              children: [
+                                ...Global.achiev
+                                    .map(
+                                      (e) => pw.Text(
+                                    "$e",
+                                    style: pw.TextStyle(
+                                      fontSize: 20,
+                                      color: PdfColors.white,
+                                      fontWeight: pw.FontWeight.bold,
+                                    ),
+                                  ),
+                                )
+                                    .toList(),
+                              ]
+                          ),
+                          pw.Divider(color: PdfColors.blue),
+                          pw.Text(
+                            "References",
+                            style: pw.TextStyle(
+                              fontWeight: pw.FontWeight.bold,
+                              color: PdfColors.blue,
+                              fontSize: 20,
+                            ),
+                          ),
+                          pw.Divider(color: PdfColors.blue),
+                          pw.SizedBox(height: 5),
+                          pw.Column(
+                            crossAxisAlignment: pw.CrossAxisAlignment.start,
+                            children: [
+                              pw.Text(
+                                "${Global.r1}",
+                                style: pw.TextStyle(
+                                  fontSize: 20,
+                                  color: PdfColors.white,
+                                  fontWeight: pw.FontWeight.bold,
+                                ),
+                              ),
+                              pw.SizedBox(height: 5),
+                              pw.Text(
+                                "${Global.r2}",
+                                style: pw.TextStyle(
+                                  fontSize: 20,
+                                  color: PdfColors.white,
+                                  fontWeight: pw.FontWeight.bold,
+                                ),
+                              ),
+                              pw.SizedBox(height: 5),
+                              pw.Text(
+                                "${Global.r3}",
+                                style: pw.TextStyle(
+                                  fontSize: 20,
+                                  color: PdfColors.white,
+                                  fontWeight: pw.FontWeight.bold,
+                                ),
+                              ),
+                            ]
+                          )
                         ],
                       ),
                     ),
@@ -146,7 +241,7 @@ class _pdfpageState extends State<pdfpage> {
                 child: pw.Column(
                   children: [
                     pw.Padding(
-                      padding: pw.EdgeInsets.all(20),
+                      padding: pw.EdgeInsets.all(10),
                       child: pw.Column(
                         mainAxisAlignment: pw.MainAxisAlignment.spaceEvenly,
                         children: [
@@ -154,15 +249,12 @@ class _pdfpageState extends State<pdfpage> {
                           pw.Text(
                             "Contact",
                             style: pw.TextStyle(
-                              fontSize: 24,
+                              fontSize: 20,
                               color: PdfColors.blue,
                               fontWeight: pw.FontWeight.bold,
                             ),
                           ),
                           pw.Divider(),
-                          pw.SizedBox(
-                            height: 10,
-                          ),
                           pw.Column(
                             crossAxisAlignment: pw.CrossAxisAlignment.start,
                             children: [
@@ -174,7 +266,7 @@ class _pdfpageState extends State<pdfpage> {
                                   fontWeight: pw.FontWeight.bold,
                                 ),
                               ),
-                              pw.SizedBox(height: 10),
+                              pw.SizedBox(height: 5),
                               pw.Text(
                                 "email id:- ${Global.email}",
                                 style: pw.TextStyle(
@@ -183,7 +275,7 @@ class _pdfpageState extends State<pdfpage> {
                                   fontWeight: pw.FontWeight.bold,
                                 ),
                               ),
-                              pw.SizedBox(height: 10),
+                              pw.SizedBox(height: 5),
                               pw.Text(
                                 "contact No:- ${Global.contact!}",
                                 style: pw.TextStyle(
@@ -192,7 +284,7 @@ class _pdfpageState extends State<pdfpage> {
                                   fontWeight: pw.FontWeight.bold,
                                 ),
                               ),
-                              pw.SizedBox(height: 10),
+                              pw.SizedBox(height: 5),
                               pw.Text(
                                 "Address:- ${Global.a1}",
                                 style: pw.TextStyle(
@@ -201,7 +293,7 @@ class _pdfpageState extends State<pdfpage> {
                                   fontWeight: pw.FontWeight.bold,
                                 ),
                               ),
-                              pw.SizedBox(height: 10),
+                              pw.SizedBox(height: 5),
                               pw.Text(
                                 "${Global.a2}",
                                 style: pw.TextStyle(
@@ -210,7 +302,7 @@ class _pdfpageState extends State<pdfpage> {
                                   fontWeight: pw.FontWeight.bold,
                                 ),
                               ),
-                              pw.SizedBox(height: 10),
+                              pw.SizedBox(height: 5),
                               pw.Text(
                                 "${Global.a3}",
                                 style: pw.TextStyle(
@@ -219,81 +311,262 @@ class _pdfpageState extends State<pdfpage> {
                                   fontWeight: pw.FontWeight.bold,
                                 ),
                               ),
+                              pw.Column(
+                                mainAxisAlignment: pw.MainAxisAlignment.center,
+                                children: [
+                                  pw.Divider(
+                                    color: PdfColors.blue,
+                                  ),
+                                  pw.Text(
+                                    "Carrier",
+                                    style: pw.TextStyle(
+                                      fontSize: 20,
+                                      color: PdfColors.blue,
+                                      fontWeight: pw.FontWeight.bold,
+                                    ),
+                                  ),
+                                  pw.Divider(
+                                    color: PdfColors.blue,
+                                  ),
+                                ]
+                              ),
+                              pw.Column(
+                                  crossAxisAlignment: pw.CrossAxisAlignment.start,
+                                  children: [
+                                    pw.Text(
+                                      "Carrier Objective:- ${Global.carrier1}",
+                                      style: pw.TextStyle(
+                                        fontSize: 18,
+                                        color: PdfColors.black,
+                                        fontWeight: pw.FontWeight.bold,
+                                      ),
+                                    ),
+                                    pw.Text(
+                                      "Current Designation:- ${Global.carrier2}",
+                                      style: pw.TextStyle(
+                                        fontSize: 18,
+                                        color: PdfColors.black,
+                                        fontWeight: pw.FontWeight.bold,
+                                      ),
+                                    ),
+                                  ]
+                              ),
+                              pw.Column(
+                                  mainAxisAlignment: pw.MainAxisAlignment.center,
+                                  children: [
+                                    pw.Divider(
+                                      color: PdfColors.blue,
+                                    ),
+                                    pw.Text(
+                                      "Education",
+                                      style: pw.TextStyle(
+                                        fontSize: 20,
+                                        color: PdfColors.blue,
+                                        fontWeight: pw.FontWeight.bold,
+                                      ),
+                                    ),
+                                    pw.Divider(
+                                      color: PdfColors.blue,
+                                    ),
+                                  ]
+                              ),
+                              pw.Column(
+                                  crossAxisAlignment: pw.CrossAxisAlignment.start,
+                                  children: [
+                                    pw.Text(
+                                      "Course:- ${Global.education}",
+                                      style: pw.TextStyle(
+                                        fontSize: 18,
+                                        color: PdfColors.black,
+                                        fontWeight: pw.FontWeight.bold,
+                                      ),
+                                    ),
+                                    pw.SizedBox(
+                                      height: 5,
+                                    ),
+                                    pw.Text(
+                                      "School/collage/Institute:- ${Global.education1}",
+                                      style: pw.TextStyle(
+                                        fontSize: 18,
+                                        color: PdfColors.black,
+                                        fontWeight: pw.FontWeight.bold,
+                                      ),
+                                    ),
+                                    pw.SizedBox(height: 5),
+                                    pw.Column(
+                                        crossAxisAlignment: pw.CrossAxisAlignment.start,
+                                        children: [
+                                          pw.Text(
+                                            "School/collage/Institute:- ${Global.education2}",
+                                            style: pw.TextStyle(
+                                              fontSize: 18,
+                                              color: PdfColors.black,
+                                              fontWeight: pw.FontWeight.bold,
+                                            ),
+                                          ),
+                                          pw.SizedBox(
+                                            height: 5,
+                                          ),
+                                          pw.Text(
+                                            "Year of Pass:- ${Global.education3}",
+                                            style: pw.TextStyle(
+                                              fontSize: 18,
+                                              color: PdfColors.black,
+                                              fontWeight: pw.FontWeight.bold,
+                                            ),
+                                          ),
+                                        ]
+                                    ),
+                                    pw.Column(
+                                        mainAxisAlignment: pw.MainAxisAlignment.center,
+                                        children: [
+                                          pw.Divider(
+                                            color: PdfColors.blue,
+                                          ),
+                                          pw.Text(
+                                            "Experience",
+                                            style: pw.TextStyle(
+                                              fontSize: 20,
+                                              color: PdfColors.blue,
+                                              fontWeight: pw.FontWeight.bold,
+                                            ),
+                                          ),
+                                          pw.Divider(
+                                            color: PdfColors.blue,
+                                          ),
+                                        ]
+                                    ),
+                                    pw.Column(
+                                        crossAxisAlignment: pw.CrossAxisAlignment.start,
+                                        children: [
+                                          pw.Text(
+                                            "Company name:- ${Global.exprience}",
+                                            style: pw.TextStyle(
+                                              fontSize: 18,
+                                              color: PdfColors.black,
+                                              fontWeight: pw.FontWeight.bold,
+                                            ),
+                                          ),
+                                          pw.SizedBox(
+                                            height: 5,
+                                          ),
+                                          pw.Text(
+                                            "School/collage/Institute:- ${Global.exprience1}",
+                                            style: pw.TextStyle(
+                                              fontSize: 18,
+                                              color: PdfColors.black,
+                                              fontWeight: pw.FontWeight.bold,
+                                            ),
+                                          ),
+                                          pw.SizedBox(height: 5),
+                                          pw.Column(
+                                              crossAxisAlignment: pw.CrossAxisAlignment.start,
+                                              children: [
+                                                pw.Text(
+                                                  "Roles:- ${Global.exprience2}",
+                                                  style: pw.TextStyle(
+                                                    fontSize: 18,
+                                                    color: PdfColors.black,
+                                                    fontWeight: pw.FontWeight.bold,
+                                                  ),
+                                                ),
+                                                pw.SizedBox(
+                                                  height: 5,
+                                                ),
+                                                pw.Text(
+                                                  "Employed Status:- ${Global.previously}",
+                                                  style: pw.TextStyle(
+                                                    fontSize: 18,
+                                                    color: PdfColors.black,
+                                                    fontWeight: pw.FontWeight.bold,
+                                                  ),
+                                                ),pw.SizedBox(
+                                                  height: 5,
+                                                ),
+                                                pw.Text(
+                                                  "Date Joined/Exit:- ${Global.exprience3}",
+                                                  style: pw.TextStyle(
+                                                    fontSize: 18,
+                                                    color: PdfColors.black,
+                                                    fontWeight: pw.FontWeight.bold,
+                                                  ),
+                                                ),
+                                              ]
+                                          ),
+                                          pw.Column(
+                                              mainAxisAlignment: pw.MainAxisAlignment.center,
+                                              children: [
+                                                pw.Divider(
+                                                  color: PdfColors.blue,
+                                                ),
+                                                pw.Text(
+                                                  "Projects",
+                                                  style: pw.TextStyle(
+                                                    fontSize: 20,
+                                                    color: PdfColors.blue,
+                                                    fontWeight: pw.FontWeight.bold,
+                                                  ),
+                                                ),
+                                                pw.Divider(
+                                                  color: PdfColors.blue,
+                                                ),
+                                              ]
+                                          ),
+                                          pw.Column(
+                                              crossAxisAlignment: pw.CrossAxisAlignment.start,
+                                              children: [
+                                                pw.Text(
+                                                  "Title:- ${Global.project}",
+                                                  style: pw.TextStyle(
+                                                    fontSize: 18,
+                                                    color: PdfColors.black,
+                                                    fontWeight: pw.FontWeight.bold,
+                                                  ),
+                                                ),
+                                                ...Global.projects
+                                                    .map(
+                                                      (e) => pw.Text(
+                                                    "Technologies:-$e",
+                                                    style: pw.TextStyle(
+                                                      fontSize: 20,
+                                                      color: PdfColors.black,
+                                                      fontWeight: pw.FontWeight.bold,
+                                                    ),
+                                                  ),
+                                                )
+                                                    .toList(),
+                                                pw.Text(
+                                                  "Roles:- ${Global.project1}",
+                                                  style: pw.TextStyle(
+                                                    fontSize: 18,
+                                                    color: PdfColors.black,
+                                                    fontWeight: pw.FontWeight.bold,
+                                                  ),
+                                                ),
+                                                pw.Text(
+                                                  "Technologices:- ${Global.project2}",
+                                                  style: pw.TextStyle(
+                                                    fontSize: 18,
+                                                    color: PdfColors.black,
+                                                    fontWeight: pw.FontWeight.bold,
+                                                  ),
+                                                ),
+                                                pw.Text(
+                                                  "Descripation:- ${Global.project3}",
+                                                  style: pw.TextStyle(
+                                                    fontSize: 18,
+                                                    color: PdfColors.black,
+                                                    fontWeight: pw.FontWeight.bold,
+                                                  ),
+                                                ),
+                                              ]
+                                          ),
+                                        ]
+                                    ),
+                                  ]
+                              ),
                             ],
                           ),
-                          // pw.Text("${Global.personal}",
-                          //     textAlign: pw.TextAlign.left,
-                          //     style: pw.TextStyle(
-                          //       fontSize: 18,
-                          //       color: PdfColors.black,
-                          //     )),
-                          // pw.SizedBox(height: 40),
-                          // pw.Divider(),
-                          // pw.Text(
-                          //   "Education Details",
-                          //   style: pw.TextStyle(
-                          //     fontSize: 25,
-                          //     fontWeight: pw.FontWeight.bold,
-                          //     color: PdfColors.blue,
-                          //   ),
-                          // ),
-                          // pw.Divider(),
-                          // pw.SizedBox(
-                          //   height: 40,
-                          // ),
-                          // pw.Divider(),
-                          // pw.Text(
-                          //   "Experience",
-                          //   style: pw.TextStyle(
-                          //     fontSize: 25,
-                          //     fontWeight: pw.FontWeight.bold,
-                          //     color: PdfColors.blue,
-                          //   ),
-                          // ),
-                          // pw.SizedBox(height: 40),
-                          // pw.Divider(),
-                          // pw.Text(
-                          //   "Projects",
-                          //   style: pw.TextStyle(
-                          //     fontWeight: pw.FontWeight.bold,
-                          //     color: PdfColors.blue,
-                          //     fontSize: 25,
-                          //   ),
-                          // ),
-                          // pw.Divider(),
-                          // pw.SizedBox(height: 40),
-                          // pw.Divider(),
-                          // pw.Text(
-                          //   "Achievements",
-                          //   style: pw.TextStyle(
-                          //     fontWeight: pw.FontWeight.bold,
-                          //     color: PdfColors.blue,
-                          //     fontSize: 25,
-                          //   ),
-                          // ),
-                          // pw.Divider(),
-                          // pw.SizedBox(height: 40),
-                          // pw.Divider(),
-                          // pw.Text(
-                          //   "References",
-                          //   style: pw.TextStyle(
-                          //     fontWeight: pw.FontWeight.bold,
-                          //     color: PdfColors.blue,
-                          //     fontSize: 25,
-                          //   ),
-                          // ),
-                          // pw.Divider(),
-                          // pw.SizedBox(height: 40),
-                          // pw.Divider(),
-                          // pw.Text(
-                          //   "Declaration",
-                          //   style: pw.TextStyle(
-                          //     fontWeight: pw.FontWeight.bold,
-                          //     color: PdfColors.blue,
-                          //     fontSize: 25,
-                          //   ),
-                          // ),
-                          // pw.Divider(),
                         ],
                       ),
                     )
@@ -327,7 +600,7 @@ class _pdfpageState extends State<pdfpage> {
           ),
         ),
         centerTitle: true,
-        backgroundColor: Colors.blue,
+        backgroundColor: const Color(0xff1D2939),
       ),
       body: PdfPreview(
         build: (format) => pdf.save(),

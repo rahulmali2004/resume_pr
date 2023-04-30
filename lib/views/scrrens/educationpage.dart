@@ -205,6 +205,25 @@ class _educationpageState extends State<educationpage> {
                                   ],
                                 ),
                               ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  ElevatedButton(
+                                      onPressed: () {
+                                        formkey.currentState!.validate();
+                                        formkey.currentState!.save();
+                                      },
+                                      child: const Text("Save")),
+                                  ElevatedButton(
+                                      onPressed: () {
+                                        setState(() {
+                                          Global.carrier1 = Global.carrier2 = null;
+                                          formkey.currentState!.reset();
+                                        });
+                                      },
+                                      child: const Text("Reset")),
+                                ],
+                              ),
                             ],
                           ),
                         ],

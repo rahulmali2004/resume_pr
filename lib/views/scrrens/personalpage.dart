@@ -12,9 +12,9 @@ class personalpage extends StatefulWidget {
 
 class _personalpageState extends State<personalpage> {
   String? maritstatus;
-  bool Englishcheckbox = false;
-  bool Hindicheckbox = false;
-  bool Gujaraticheckbox = false;
+  bool Elanguages = false;
+  bool Hlanguages = false;
+  bool Glanguages = false;
   String nationality = "";
   GlobalKey<FormState> formkey = GlobalKey<FormState>();
   @override
@@ -54,15 +54,15 @@ class _personalpageState extends State<personalpage> {
                   ),
                   TextFormField(
                     textInputAction: TextInputAction.next,
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        const Text("Date !!");
+                    onSaved: (val) {
+                      Global.b1 = val;
+                    },
+                    validator: (val) {
+                      if (val!.isEmpty) {
+                        return "Enter designation";
                       } else {
                         return null;
                       }
-                    },
-                    onSaved: (value) {
-                      return null;
                     },
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
@@ -87,20 +87,21 @@ class _personalpageState extends State<personalpage> {
                   ),
                   RadioListTile(
                       value: "Single",
-                      groupValue: maritstatus,
+                      groupValue: Global.maritstatus,
                       title: Text("Single"),
                       onChanged: (val) {
                         setState(() {
-                          maritstatus = val;
+                          Global.maritstatus = val;
                         });
-                      }),
+                      }
+                      ),
                   RadioListTile(
                       value: "Married",
                       title: Text("Marride"),
-                      groupValue: maritstatus,
+                      groupValue: Global.maritstatus,
                       onChanged: (val) {
                         setState(() {
-                          maritstatus = val;
+                         Global. maritstatus = val;
                         });
                       }),
                   SizedBox(
@@ -114,30 +115,54 @@ class _personalpageState extends State<personalpage> {
                         color: Color(0xff1D2939)),
                   ),
                   CheckboxListTile(
-                      value: Englishcheckbox,
+                      value: Elanguages,
                       title: const Text("English"),
                       controlAffinity: ListTileControlAffinity.leading,
                       onChanged: (val) {
                         setState(() {
-                          Englishcheckbox = val!;
+                          Elanguages = val!;
+                          setState(() {
+                            Elanguages = val!;
+                            if (Elanguages == true) {
+                              if (!Global.language.contains("English")) {
+                                Global.language.add("English");
+                              }
+                            }
+                          });
                         });
                       }),
                   CheckboxListTile(
-                      value: Hindicheckbox,
+                      value: Hlanguages,
                       title: const Text("Hindi"),
                       controlAffinity: ListTileControlAffinity.leading,
                       onChanged: (val) {
                         setState(() {
-                          Hindicheckbox = val!;
+                          Hlanguages = val!;
+                          setState(() {
+                            Hlanguages = val!;
+                            if (Hlanguages == true) {
+                              if (!Global.language.contains("Hindi")) {
+                                Global.language.add("Hindi");
+                              }
+                            }
+                          });
                         });
                       }),
                   CheckboxListTile(
-                      value: Gujaraticheckbox,
+                      value: Glanguages,
                       title: const Text("Gujarati"),
                       controlAffinity: ListTileControlAffinity.leading,
                       onChanged: (val) {
                         setState(() {
-                          Gujaraticheckbox = val!;
+                          Glanguages = val!;
+                          setState(() {
+                            Glanguages = val!;
+                            if (Glanguages == true) {
+                              if (!Global.language.contains("Gujarati")) {
+                                Global.language.add("Gujarati");
+                              }
+                            }
+                          });
                         });
                       }),
                   SizedBox(
@@ -169,7 +194,14 @@ class _personalpageState extends State<personalpage> {
                             border: OutlineInputBorder(),
                           ),
                           onSaved: (val) {
-                            nationality = val!;
+                            Global. nationality= val;
+                          },
+                          validator: (val) {
+                            if (val!.isEmpty) {
+                              return "Enter Nationality";
+                            } else {
+                              return null;
+                            }
                           },
                         ),
                         Row(
@@ -184,7 +216,8 @@ class _personalpageState extends State<personalpage> {
                             ElevatedButton(
                                 onPressed: () {
                                   setState(() {
-                                    Global.b1 = Global.b2 = Global.b3 = null;
+                                  Global.b1 = Global.maritstatus =
+                                   Global.nationality = null;
                                     formkey.currentState!.reset();
                                   });
                                 },

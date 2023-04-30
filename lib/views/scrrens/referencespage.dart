@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../modals/globals_page.dart';
 import '../components/iconbackpage.dart';
 
 class referencespage extends StatefulWidget {
@@ -72,7 +73,14 @@ class _referencespageState extends State<referencespage> {
                               border: OutlineInputBorder(),
                             ),
                             onSaved: (val) {
-                              references = val!;
+                              Global.r1 = val;
+                            },
+                            validator: (val) {
+                              if (val!.isEmpty) {
+                                return "Enter References";
+                              } else {
+                                return null;
+                              }
                             },
                           ),
                           SizedBox(
@@ -105,7 +113,14 @@ class _referencespageState extends State<referencespage> {
                                     border: OutlineInputBorder(),
                                   ),
                                   onSaved: (val) {
-                                    references = val!;
+                                    Global.r2 = val;
+                                  },
+                                  validator: (val) {
+                                    if (val!.isEmpty) {
+                                      return "Enter Designation";
+                                    } else {
+                                      return null;
+                                    }
                                   },
                                 ),
                                 SizedBox(
@@ -138,7 +153,14 @@ class _referencespageState extends State<referencespage> {
                                           border: OutlineInputBorder(),
                                         ),
                                         onSaved: (val) {
-                                          references = val!;
+                                          Global.r3 = val;
+                                        },
+                                        validator: (val) {
+                                          if (val!.isEmpty) {
+                                            return "Enter Institute";
+                                          } else {
+                                            return null;
+                                          }
                                         },
                                       ),
                                       SizedBox(
@@ -146,6 +168,26 @@ class _referencespageState extends State<referencespage> {
                                       ),
                                     ],
                                   ),
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    ElevatedButton(
+                                        onPressed: () {
+                                          formkey.currentState!.validate();
+                                          formkey.currentState!.save();
+                                        },
+                                        child: const Text("Save")),
+                                    ElevatedButton(
+                                        onPressed: () {
+                                          setState(() {
+                                            Global.r1 =Global.r2 =
+                                                Global.r3 =null;
+                                            formkey.currentState!.reset();
+                                          });
+                                        },
+                                        child: const Text("Reset")),
+                                  ],
                                 ),
                               ],
                             ),

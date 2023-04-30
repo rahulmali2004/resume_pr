@@ -28,12 +28,12 @@ class _interestpageState extends State<interestpage> {
     });
 
     Global.myhobbiesControllers.forEach((element) {
-      Global.achiev.add("");
-      Global.achiev[Global.myhobbiesControllers.indexOf(element)] =
+      Global.hobbies.add("");
+      Global.hobbies[Global.myhobbiesControllers.indexOf(element)] =
           element.text;
     });
 
-    Global.achiev.removeWhere((element) => element == "");
+    Global.hobbies.removeWhere((element) => element == "");
 
     if (Global.myhobbiesControllers.isEmpty) {
       for (int i = 0; i < 2; i++) {
@@ -58,7 +58,7 @@ class _interestpageState extends State<interestpage> {
       appBar: AppBar(
         leading: Mybackicon(),
         title: Text(
-          "Interestpage",
+          "interestpage",
           style: TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 22,
@@ -84,7 +84,7 @@ class _interestpageState extends State<interestpage> {
                 Align(
                   alignment: Alignment.center,
                   child: Text(
-                    "Enter Interest",
+                    "Enter Your Interest",
                     style: TextStyle(
                       color: Colors.grey.shade500,
                       fontSize: 22,
@@ -93,7 +93,7 @@ class _interestpageState extends State<interestpage> {
                 ),
                 ...List.generate(
                   Global.myhobbiesControllers.length,
-                  (index) => MyhobbyTile(index: index),
+                      (index) => MySkillTile(index: index),
                 ),
                 const SizedBox(
                   height: 15,
@@ -122,17 +122,14 @@ class _interestpageState extends State<interestpage> {
     );
   }
 
-  Widget MyhobbyTile({required int index}) {
+  Widget MySkillTile({required int index}) {
     return Row(
       children: [
         Expanded(
           child: TextField(
             controller: Global.myhobbiesControllers[index],
             decoration: const InputDecoration(
-              hintText: "Hobbies Name",
-              hintStyle: TextStyle(
-                fontSize: 22,
-              ),
+              hintText: "Enter hobbies",
             ),
           ),
         ),
